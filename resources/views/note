@@ -1,0 +1,45 @@
+1. super admin
+2. admin_kabupaten
+3. admin_kecamatan
+4. admin_kelurahan
+    4.1 kader_kelurahan
+5. admin_desa
+    5.1 kader_desa
+
+@push('script-addon')
+
+<script>
+    $(document).ready(function() {
+    $('#id_kecamatan').on('change', function() {
+       var categoryID = $(this).val();
+       console.log('cek data kecamatan');
+       if(categoryID) {
+        console.log('cek get data desa');
+
+           $.ajax({
+               url: '/getDesa/'+categoryID,
+               type: "GET",
+               data : {"_token":"{{ csrf_token() }}"},
+               dataType: "json",
+               success:function(data)
+               {
+                console.log('sukses cek data desa');
+
+                 if(data){
+                    $('#id_desa').empty();
+                    $('#id_desa').append('<option hidden>Pilih Desa</option>');
+                    $.each(data, function(key, desas){
+                        $('select[name="id_desa"]').append('<option value="'+ key +'">' + desas.nama_desa+ '</option>');
+                    });
+                }else{
+                    $('#id_desa').empty();
+                }
+             }
+           });
+       }else{
+         $('#id_desa').empty();
+       }
+    });
+    });
+</script>
+@endpush

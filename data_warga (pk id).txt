@@ -1,0 +1,4 @@
+data_warga (pk id)
+    data_kegiatan_warga (fk id_warga, fk id_kegiatan, fk id_keterangan)
+        kategori_kegiatan (pk id)
+        keterangan_kegiatan (pk id)
