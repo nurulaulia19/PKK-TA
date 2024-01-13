@@ -71,6 +71,7 @@
                                                 <th rowspan="2">Status Perkawinan</th>
                                                 <th rowspan="2">Jenis Kelamin</th>
                                                 <th rowspan="2">Tempat Lahir</th>
+                                                <th rowspan="2">Tanggal Lahir/Umur</th>
                                                 <th rowspan="2">Agama</th>
                                                 <th rowspan="2">Pendidikan</th>
                                                 <th rowspan="2">Pekerjaan</th>

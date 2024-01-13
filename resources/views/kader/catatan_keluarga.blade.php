@@ -105,6 +105,7 @@
                                                     <td style="vertical-align: middle;">{{ucfirst($data_warga->berkebutuhan_khusus)}}</td>
 
                                                     @foreach ($kategori_kegiatans as $kategori_kegiatan)
+                                                    
                                                         <td>
                                                             @if ($data_kegiatan_wargas = $data_warga->kegiatan)
                                                                 <ul>
@@ -116,6 +117,7 @@
                                                                 </ul>
                                                             @endif
                                                         </td>
+
                                                     @endforeach
                                                         </tr>
                                             @endforeach
