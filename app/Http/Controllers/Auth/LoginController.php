@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class LoginController extends Controller
@@ -31,7 +32,37 @@ class LoginController extends Controller
      */
     // protected $redirectTo = RouteServiceProvider::HOME;
     // protected $redirectTo = RouteServiceProvider::dashboard;
+
+    // hapus ini tadi aul
+    // public function login()
+    // {
+    //     return view('admin_kab.login');
+    // }
+    public function loginPost(Request $request)
+    {
+        $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        $credentials['email'] = $request->get('email');
+        $credentials['password'] = $request->get('password');
+        $credentials['user_type'] = 'admin_kabupaten';
+        $remember = $request->get('remember');
+
+        $attempt = Auth::attempt($credentials, $remember);
+        // dd($attempt);
+
+        if ($attempt) {
+            return redirect('/dashboard_kab');
+        } else {
+            return back()->withErrors(['email' => ['Incorrect email / password.']]);
+        }
+    }
+
     public function authenticated(){
+        // aul hapus ini juga
+        // dd(Auth::user());
         if (Auth::user()->user_type == 'superadmin') {
             return redirect('/dashboard_super')->with('sukses', 'selamat datang');
         }
@@ -70,13 +101,15 @@ class LoginController extends Controller
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
      */
     public function logout(Request $request)
-    {
-        $this->guard()->logout();
+{
+    $this->guard()->logout();
 
-        $request->session()->invalidate();
+    $request->session()->invalidate();
 
-        $request->session()->regenerateToken();
+    $request->session()->regenerateToken();
 
-        return redirect()->route('login');
-    }
+    $redirect = route('login') . '?logout=true';
+
+    return Redirect::to($redirect);
+}
 }

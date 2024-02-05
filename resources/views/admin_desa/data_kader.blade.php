@@ -60,7 +60,7 @@
                                             @endif
                                         </td>
 
-                                        <td style="vertical-align: middle;"><img src="{{$c->foto ? Storage::disk('public')->url($c->foto) : null}}" width="100px"></td>
+                                        <td style="vertical-align: middle;"><img src="{{ asset('uploads/'.$c->foto) }}" width="50px"></td>
 
                                         <td style="vertical-align: middle;">{{$c->desa->nama_desa}}</td>
                                         <td style="vertical-align: middle;">{{$c->kecamatan->nama_kecamatan}}</td>

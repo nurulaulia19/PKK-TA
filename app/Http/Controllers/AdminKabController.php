@@ -52,7 +52,7 @@ class AdminKabController extends Controller
         $remember = $request->get('remember');
 
         $attempt = Auth::attempt($credentials, $remember);
-// dd($attempt);
+        // dd($attempt);
 
         if ($attempt) {
             return redirect('/dashboard_kab');

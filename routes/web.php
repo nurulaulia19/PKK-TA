@@ -17,6 +17,7 @@ use App\Http\Controllers\AdminKab\DataKecamatanController;
 use App\Http\Controllers\AdminKab\UserController;
 use App\Http\Controllers\AdminKabController;
 use App\Http\Controllers\AdminKecController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardSuperController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KaderFormController;
@@ -153,15 +154,21 @@ Route::middleware(['user_type:admin_desa'])->group(function(){
     Route::resource('/keterangan_kegiatan', KeteranganKegiatanController::class);
 
     // form data kategori pendataan kader
-    Route::resource('/kategori_industri', KategoriIndustriRumahController::class);
-    Route::resource('/kategori_pemanfaatan', KategoriPemanfaatanLahanController::class);
+    // Route::resource('/kategori_industri', KategoriIndustriRumahController::class);
+    // Route::resource('/kategori_pemanfaatan', KategoriPemanfaatanLahanController::class);
 
 });
 
 
 // halaman admin kab
 Route::get('/admin_kabupaten/login', [AdminKabController::class, 'login'])->name('admin_kabupaten.login');
+//recovery
 Route::post('/admin_kabupaten/login', [AdminKabController::class, 'loginPost']);
+
+// Route::get('/login', [LoginController::class, 'login'])->name('login');
+// Route::post('/login', [LoginController::class, 'loginPost']);
+
+
 Route::post('/admin_kabupaten/logout', [AdminKabController::class, 'logoutPost'])->name('admin_kabupaten.logout');
 Route::middleware(['user_type:admin_kabupaten'])->group(function(){
     Route::get('/dashboard_kab', [AdminKabController::class, 'dashboard_kab']);

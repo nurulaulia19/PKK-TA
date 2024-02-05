@@ -226,16 +226,25 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('kader_dasawisma.logout') }}"
+                        <a class="nav-link" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                             <i class="nav-icon fas fa-sign-out-alt"></i>
                             Keluar
                         </a>
 
-                        <form id="logout-form" action="{{ route('kader_dasawisma.logout') }}" method="POST" class="d-none">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
+                        {{-- <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form> --}}
                       </li>
 
 

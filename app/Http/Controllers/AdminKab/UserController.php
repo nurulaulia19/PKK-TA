@@ -122,7 +122,10 @@ class UserController extends Controller
         $kec = DataKecamatan::all();
         $desa = Data_Desa::all();
 
-        $data['user_type'] = ['kader_dasawisma' => 'Kader Dasawisma', 'admin_desa' => 'Admin Desa/Kelurahan'];
+        // $data['user_type'] = ['kader_dasawisma' => 'Kader Dasawisma', 'admin_desa' => 'Admin Desa/Kelurahan'];
+        $data['user_type'] = ['kader_dasawisma', 'admin_desa','admin_kabupaten'];
+        // dd($data);
+
         return view('admin_kab.form.edit_pengguna', $data, compact('data_pengguna_super', 'kec', 'desa'));
 
     }

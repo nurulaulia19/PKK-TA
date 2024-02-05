@@ -52,13 +52,16 @@
                     <label class="col-sm-2 col-form-label">User Type</label>
                     <div class="col-sm-10">
                         <select class="form-control @error('user_type') is-invalid @enderror" name="user_type">
-                            @foreach($user_type as $key => $val)
+                            {{-- @foreach($user_type as $key => $val)
                                 @if($key==old('user_type', $data_pengguna_super->user_type))
                                 <option value="{{ $key }}" selected>{{ $val }}</option>
                                 @else
                                 <option value="{{ $key }}">{{ $val }}</option>
                                 @endif
-                            @endforeach
+                            @endforeach --}}
+                            @foreach($user_type as $key => $val)
+                            <option {{ $data_pengguna_super->user_type == $val ? 'selected' :''}} value="{{ $val }}">{{ $val }}</option>
+                              @endforeach
                           </select>
                     @error('user_type')
                         <span class="invalid-feedback" role="alert">

@@ -1,6 +1,4 @@
-@extends('layouts.app')
-{{-- @extends('main.layout') --}}
-
+{{-- @extends('layouts.app')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -62,8 +60,6 @@
                                     <div class="modal-dialog" role="document">
                                       <div class="modal-content">
                                         <div class="modal-header">
-
-                                           {{-- <img src="/asset/sukses.png" width="" height="" alt="..."> --}}
                                         </div>
                                       </div>
                                     </div>
@@ -83,4 +79,88 @@
         </div>
     </div>
 </div>
+@endsection --}}
+
+
+{{-- bikin login sendiri --}}
+
+@extends('layouts.login')
+@section('content')
+
+
+<div class="login-box">
+    <div class="login-logo">
+      <a href="../../index2.html"><b>Admin</b></a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
+      <div class="card-body login-card-body">
+          <center>
+              <img src="{{ url ('image/remove.png') }}" width="100px">
+          </center>
+        <p class="login-box-msg">Silahkan Login</p>
+
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="col-md-12">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="current-password">
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
+
+<br>
+          <div class="row">
+            {{-- <div class="col md-8">
+              <div class="icheck-primary">
+                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                <label for="remember">
+                  Remember Me
+                </label>
+              </div>
+            </div> --}}
+            <!-- /.col -->
+            <div class="col md-4">
+              <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            </div>
+            <!-- /.col -->
+          </div>
+        </form>
+
+      </div>
+      <!-- /.login-card-body -->
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the value of the 'logout' query parameter
+            var queryParamsLogout = new URLSearchParams(window.location.search).get('logout');
+    
+            // Check if 'logout' is set to 'true'
+            if (queryParamsLogout === 'true') {
+                console.log('bli jelas');
+                // Clear all page history
+                // window.history.replaceState({}, document.title, window.location.href);
+                window.history.pushState(null, null, window.location.href);
+
+            }
+        });
+    </script>
+    
+    
+  </div>
 @endsection
