@@ -78,7 +78,7 @@ class AdminController extends Controller
         {
             Auth::logout();
 
-            return redirect()->route('admin_desa.login');
+            return redirect()->route('login');
         }
 
         // data catatan data dan kegiatan warga kelompok dasa wisma admin desa

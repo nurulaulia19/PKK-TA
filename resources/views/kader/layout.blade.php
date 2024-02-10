@@ -93,10 +93,10 @@
                     <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item">
                       <!-- Message Start -->
-                      <div class="media">
+                      <div class="media d-flex" style="align-items: center">
                         <i class="far fa-user"></i>
                             <a href="/profil">
-                                <h3 class="dropdown-item-title" style="margin-right:200px">
+                                <h3 class="dropdown-item-title" style="margin-right:200px; width:150px">
                                     Akun Saya
                                 </h3>
 

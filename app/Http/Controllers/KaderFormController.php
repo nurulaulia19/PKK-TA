@@ -50,9 +50,6 @@ class KaderFormController extends Controller
         $rekap = DataWarga::with('keluarga')
         ->where('id_user', $user->id)
         ->get()->count();
-        // $pelatihan = DataPelatihanKader::
-        // where('id_desa', $user->id_desa)
-        // ->get()->count();
 
         return view('kader.dashboard', compact('keluarga', 'warga', 'kegiatan', 'pemanfaatan', 'industri',  'rekap'));
     }
@@ -97,7 +94,7 @@ class KaderFormController extends Controller
     {
         Auth::logout();
 
-        return redirect()->route('kader_dasawisma.login');
+        return redirect()->route('login');
     }
 
     // ngambil nama kepala keluarga
@@ -333,4 +330,6 @@ class KaderFormController extends Controller
         Alert::success('Berhasil', 'Data berhasil di Ubah');
         return view('kader.profil_kader', compact('data_kader'));
     }
+
+
 }

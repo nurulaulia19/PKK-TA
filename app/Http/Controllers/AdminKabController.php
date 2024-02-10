@@ -66,7 +66,7 @@ class AdminKabController extends Controller
     {
         Auth::logout();
 
-        return redirect()->route('admin_kabupaten.login');
+        return redirect()->route('login');
     }
 
     // data catatan data dan kegiatan warga kelompok tp pkk kecamatan

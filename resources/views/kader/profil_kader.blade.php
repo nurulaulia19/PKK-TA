@@ -15,8 +15,7 @@
           <div class="card card-primary card-outline">
             <div class="card-body box-profile">
               <div class="text-center">
-                <img src="{{$data_kader->foto ? Storage::disk('public')->url($data_kader->foto) : null}}" class="profile-user-img img-fluid img-circle" width="100px">
-
+                <img src="{{ asset('uploads/'.$data_kader->foto) }}" class="profile-user-img img-fluid img-circle" width="100px">
               </div>
 
               <h3 class="profile-username text-center">{{ (Auth::user()->name) }}</h3>
@@ -67,7 +66,7 @@
                         <div class="form-group">
                             <label>Foto Profil</label>
                             <input name="foto" type="file" class="form-control-file" id="foto" accept=".img, .jpg, .jpeg, .png" value="{{old('foto', Auth::user()->foto)}}">
-                            <img src="{{$data_kader->foto ? Storage::disk('public')->url($data_kader->foto) : null}}" class="img-thumbnail" width="100px">
+                            <img src="{{ asset('uploads/'.$data_kader->foto) }}" class="img-thumbnail" width="100px">
                                     {{-- <input name="logo" type="hidden" name="hidden_image" value="{{asset('gambar/'. $c->logo)}}" class="form-control-file" id="hidden_image"> --}}
                         </div>
 

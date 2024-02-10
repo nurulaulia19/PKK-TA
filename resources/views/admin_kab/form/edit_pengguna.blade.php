@@ -48,7 +48,7 @@
                     <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" value="{{$data_pengguna_super->email}}" required>
                   </div>
                 </div>
-                <div class="form-group row">
+                {{-- <div class="form-group row">
                     <label class="col-sm-2 col-form-label">User Type</label>
                     <div class="col-sm-10">
                         <select class="form-control @error('user_type') is-invalid @enderror" name="user_type">
@@ -66,15 +66,32 @@
                         </span>
                     @enderror
                     </div>
-                </div>
+                </div> --}}
                 <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">User Type</label>
+                    <div class="col-sm-10">
+                        <select class="form-control @error('user_type') is-invalid @enderror" name="user_type">
+                            @foreach($user_type as $key => $val)
+                                @php
+                                    $selected = ($key == old('user_type', $data_pengguna_super->user_type)) ? 'selected' : '';
+                                @endphp
+                                <option value="{{ $key }}" {{ $selected }}>{{ $val }}</option>
+                            @endforeach
+                        </select>
+                        @error('user_type')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+                {{-- <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Nama Kecamatan</label>
                     <div class="col-sm-10">
                     <select class="form-control @error('id_kecamatan') is-invalid @enderror" id="id_kecamatan" name="id_kecamatan">
                             @foreach ($kec as $item)
                                 <option value="{{ $item->id }}" {{ $item->id === $data_pengguna_super->id_kecamatan ? 'selected' : '' }}>{{ $item->nama_kecamatan }}</option>
                             @endforeach
-
                         </select>
                     </div>
                             @error('nama_kecamatan')
@@ -82,8 +99,26 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                </div>
+                </div> --}}
                 <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Nama Kecamatan</label>
+                    <div class="col-sm-10">
+                        <select class="form-control @error('id_kecamatan') is-invalid @enderror" id="id_kecamatan" name="id_kecamatan">
+                            <option value="">Pilih Kecamatan</option> <!-- Menambahkan opsi default -->
+                            @foreach ($kec as $item)
+                                <option value="{{ $item->id }}" {{ $item->id == old('id_kecamatan', $data_pengguna_super->id_kecamatan) ? 'selected' : '' }}>
+                                    {{ $item->nama_kecamatan }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('id_kecamatan') <!-- Menggunakan 'id_kecamatan' untuk pesan error -->
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+                {{-- <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Nama Desa</label>
                     <div class="col-sm-10">
                         <select class="form-control @error('id_desa') is-invalid @enderror" id="id_desa" name="id_desa">
@@ -92,12 +127,29 @@
                             @endforeach
                         </select>
                     </div>
+                </div> --}}
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Nama Desa</label>
+                    <div class="col-sm-10">
+                        <select class="form-control @error('id_desa') is-invalid @enderror" id="id_desa" name="id_desa">
+                            <option value="">Pilih Desa</option> <!-- Menambahkan opsi default -->
+                            @foreach ($desa as $item)
+                                <option value="{{ $item->id }}" {{ $item->id == old('id_desa', $data_pengguna_super->id_desa) ? 'selected' : '' }}>
+                                    {{ $item->nama_desa }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('id_desa')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>Foto Profil</label>
                     <input name="foto" type="file" class="form-control-file" id="foto" accept=".img, .jpg, .jpeg, .png" value="{{old('foto')}}">
-                    <img src="{{$data_pengguna_super->foto ? Storage::disk('public')->url($data_pengguna_super->foto) : null}}" class="img-thumbnail" width="100px">
-                    {{-- <input name="logo" type="hidden" name="hidden_image" value="{{asset('gambar/'. $c->logo)}}" class="form-control-file" id="hidden_image"> --}}
+                    <img src="{{ asset('uploads/'.$data_pengguna_super->foto) }}" class="img-thumbnail" width="100px">
                 </div>
 
                 <div class="card-footer">

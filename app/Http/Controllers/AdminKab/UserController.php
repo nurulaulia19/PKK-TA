@@ -65,8 +65,8 @@ class UserController extends Controller
             'email' => 'required',
             'password' => 'required|min:8',
             'user_type' => 'required',
-            'id_desa' => 'required',
-            'id_kecamatan' => 'required',
+            // 'id_desa' => 'required',
+            // 'id_kecamatan' => 'required',
         ], [
             'name.required' => 'Masukkan Nama Pengguna',
             'email.required' => 'Masukkan Email Pengguna',
@@ -122,7 +122,7 @@ class UserController extends Controller
         $kec = DataKecamatan::all();
         $desa = Data_Desa::all();
 
-        $data['user_type'] = ['kader_dasawisma' => 'Kader Dasawisma', 'admin_desa' => 'Admin Desa/Kelurahan'];
+        $data['user_type'] = ['admin_kabupaten' => 'Admin Kabupaten', 'kader_dasawisma' => 'Kader Dasawisma', 'admin_desa' => 'Admin Desa/Kelurahan'];
         return view('admin_kab.form.edit_pengguna', $data, compact('data_pengguna_super', 'kec', 'desa'));
 
     }
@@ -142,8 +142,8 @@ class UserController extends Controller
             'email' => 'required',
             // 'password' => 'required',
             'user_type' => 'required',
-            'id_desa' => 'required',
-            'id_kecamatan' => 'required',
+            // 'id_desa' => 'required',
+            // 'id_kecamatan' => 'required',
 
         ]);
 

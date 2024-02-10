@@ -43,9 +43,8 @@
                                         <td style="vertical-align: middle;">{{$c->name}}</td>
                                         <td style="vertical-align: middle;">{{$c->email}}</td>
                                         <td style="vertical-align: middle;">{{$c->user_type}}</td>
-                                        {{-- <td style="vertical-align: middle;"><img src="/foto/{{$c->foto}}" width="100px"></td> --}}
-                                        <td style="vertical-align: middle;"><img src="{{$c->foto ? Storage::disk('public')->url($c->foto) : null}}" width="100px"></td>
-
+                                        {{-- <td style="vertical-align: middle;"><img src="{{$c->foto ? Storage::disk('public')->url($c->foto) : null}}" width="100px"></td> --}}
+                                        <td style="vertical-align: middle; text-align: center;"><img src="{{ asset('uploads/'.$c->foto) }}" width="30px"></td>
                                         <td style="vertical-align: middle;">
                                             @if ($desa = $c->desa)
                                                 {{ $desa->nama_desa }}
