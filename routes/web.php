@@ -16,6 +16,7 @@ use App\Http\Controllers\AdminKab\DataGaleriController;
 use App\Http\Controllers\AdminKab\DataKecamatanController;
 use App\Http\Controllers\AdminKab\UserController;
 use App\Http\Controllers\AdminKabController;
+use App\Http\Controllers\AdminKec\DesaController;
 use App\Http\Controllers\AdminKecController;
 use App\Http\Controllers\DashboardSuperController;
 use App\Http\Controllers\HomeController;
@@ -153,8 +154,8 @@ Route::middleware(['user_type:admin_desa'])->group(function(){
     Route::resource('/keterangan_kegiatan', KeteranganKegiatanController::class);
 
     // form data kategori pendataan kader
-    Route::resource('/kategori_industri', KategoriIndustriRumahController::class);
-    Route::resource('/kategori_pemanfaatan', KategoriPemanfaatanLahanController::class);
+    // Route::resource('/kategori_industri', KategoriIndustriRumahController::class);
+    // Route::resource('/kategori_pemanfaatan', KategoriPemanfaatanLahanController::class);
 
 });
 
@@ -190,6 +191,12 @@ Route::middleware(['user_type:admin_kabupaten'])->group(function(){
         // dd($desas);
         return response()->json($desas);
     });
+});
+
+// halaman admin kecamatan
+Route::middleware(['user_type:admin_kecamatan'])->group(function(){
+    Route::get('/dashboard_kec', [DesaController::class, 'dashboard_kec']);
+    Route::get('/dashboard_kec/desa', [DesaController::class, 'desa'])->name('dashboard_kec.desa');
 });
 
 Auth::routes();

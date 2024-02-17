@@ -110,8 +110,16 @@
                   </p>
                 </a>
               </li>
-
               <li class="nav-item has-treeview">
+                <a href="/dashboard_kec/desa" class="nav-link {{ Request::is('dashboard_kec.desa') ? 'active':'' }}">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>
+                    Data Desa
+                  </p>
+                </a>
+              </li>
+
+              {{-- <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-copy"></i>
                   <p>
@@ -158,9 +166,9 @@
                 <i class="nav-icon fas fa-user"></i>
                   <p>Data Kader TP PKK</p>
                 </a>
-              </li>
+              </li> --}}
 
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a href="/rekap_kegiatan_kec" class="nav-link">
                     <i class="nav-icon fas fa-folder-open"></i>
                   <p>Data Catatan Data dan <br> Kegiatan Warga TP PKK <br> Kecamatan</p>
@@ -172,7 +180,7 @@
                     <i class="nav-icon fas fa-folder-open"></i>
                   <p>Data Laporan</p>
                 </a>
-              </li>
+              </li> --}}
 
 
 
@@ -189,14 +197,14 @@
                 </form>
               </li> --}}
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin_kecamatan.logout') }}"
+                <a class="nav-link" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
                     <i class="nav-icon fas fa-sign-out-alt"></i>
                     Keluar
                 </a>
 
-                <form id="logout-form" action="{{ route('admin_kecamatan.logout') }}" method="POST" class="d-none">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
               </li>
