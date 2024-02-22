@@ -50,12 +50,13 @@
                                     <div class="col col-md-6">
                                         <div class="form-group ">
                                             <label>Dasa Wisma</label>
-                                            {{-- <input type="text" class="form-control @error('dasa_wisma') is-invalid @enderror" name="dasa_wisma" id="dasa_wisma" placeholder="Masukkan Nama Dasa Wisma" value="{{ old('dasa_wisma') }}"> --}}
                                             <select class="form-control" id="id_dasawisma" name="id_dasawisma">
-                                                {{-- nama dasa wisma --}}
                                                 <option value="" hidden> Pilih Dasa Wisma</option>
                                                 @foreach ($dasawisma as $c)
-                                                    <option value="{{$c->id}}">{{ $c->nama_dasawisma }}</option>
+                                                    @if ($kader->id_dasawisma == $c->id)
+                                                    <option selected value="{{$c->id}}">{{ $c->nama_dasawisma }}</option>
+
+                                                    @endif
                                                 @endforeach
                                             </select>
                                         </div>

@@ -42,6 +42,7 @@ class DataWargaController extends Controller
      ->where('id', auth()->user()->id_desa)
      ->get();
 
+
      $kec = DB::table('data_kecamatan')
      ->where('id', auth()->user()->id_kecamatan)
      ->get();
@@ -49,11 +50,15 @@ class DataWargaController extends Controller
      $kad = DB::table('users')
         ->where('id', auth()->user()->id)
         ->get();
+        $kader = DB::table('users')
+        ->where('id', auth()->user()->id)
+        ->first();
 
      $kel = DataKeluarga::all();
      $dasawisma = DataKelompokDasawisma::all();
+    //  dd($dasawisma);
 
-     return view('kader.data_kegiatan.form.create_data_warga', compact('desas', 'kec', 'kel', 'kad', 'dasawisma'));
+     return view('kader.data_kegiatan.form.create_data_warga', compact('desas', 'kader', 'kec', 'kel', 'kad', 'dasawisma'));
 
  }
 

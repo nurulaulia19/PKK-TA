@@ -66,7 +66,7 @@
                             @foreach ($dasawisma as $c)
                                 <option value="{{$c->id}}"{{ $c->id === $c->id_dasawisma ? 'selected' : '' }}>{{ $c->nama_dasawisma }}</option>
                             @endforeach
-                            
+
                         </select>
                         @error('id_dasawisma')
                             <span class="invalid-feedback" role="alert">
@@ -91,7 +91,7 @@
                 <div class="form-group">
                     <label>Foto Profil</label>
                     <input name="foto" type="file" class="form-control-file" id="foto" accept=".img, .jpg, .jpeg, .png" value="{{old('foto')}}">
-                    <img src="{{$data_kader->foto ? Storage::disk('public')->url($data_kader->foto) : null}}" class="img-thumbnail" width="100px">
+                    <img src="{{ asset('uploads/'.$data_kader->foto) }}" class="img-thumbnail" width="100px">
                     {{-- <input name="logo" type="hidden" name="hidden_image" value="{{asset('gambar/'. $c->logo)}}" class="form-control-file" id="hidden_image"> --}}
                 </div>
 

@@ -3598,335 +3598,335 @@ class UserSeeder extends Seeder
         ]);
         $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Arahan',
-        //     'email' => 'adminkecamatanarahan@gmail.com',
-        //     'password' => Hash::make('kecamatanarahan'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 2,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_desa->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Arahan',
+            'email' => 'adminkecamatanarahan@gmail.com',
+            'password' => Hash::make('kecamatanarahan'),
+            'user_type' => 'admin_kecamatan',
+        'foto' => null,
+            'id_kecamatan' => 2,
+            'id_desa' => null,
+        ]);
+        $admin_desa->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Balongan',
-        //     'email' => 'adminkecamatanbalongan@gmail.com',
-        //     'password' => Hash::make('kecamatanbalongan'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 3,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Balongan',
+            'email' => 'adminkecamatanbalongan@gmail.com',
+            'password' => Hash::make('kecamatanbalongan'),
+            'user_type' => 'admin_kecamatan',
+        'foto' => null,
+            'id_kecamatan' => 3,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Bangodua',
-        //     'email' => 'adminkecamatanbangodua@gmail.com',
-        //     'password' => Hash::make('kecamatanbangodua'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 4,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Bangodua',
+            'email' => 'adminkecamatanbangodua@gmail.com',
+            'password' => Hash::make('kecamatanbangodua'),
+            'user_type' => 'admin_kecamatan',
+        'foto' => null,
+            'id_kecamatan' => 4,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Bongas',
-        //     'email' => 'adminkecamatanbongas@gmail.com',
-        //     'password' => Hash::make('kecamatanbongas'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 5,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Bongas',
+            'email' => 'adminkecamatanbongas@gmail.com',
+            'password' => Hash::make('kecamatanbongas'),
+            'user_type' => 'admin_kecamatan',
+        'foto' => null,
+            'id_kecamatan' => 5,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Cantigi',
-        //     'email' => 'adminkecamatancantigi@gmail.com',
-        //     'password' => Hash::make('kecamatancantigi'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 6,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Cantigi',
+            'email' => 'adminkecamatancantigi@gmail.com',
+            'password' => Hash::make('kecamatancantigi'),
+            'user_type' => 'admin_kecamatan',
+            'foto' => null,
+            'id_kecamatan' => 6,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Cikedung',
-        //     'email' => 'adminkecamatancikedung@gmail.com',
-        //     'password' => Hash::make('kecamatancikedung'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 7,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Cikedung',
+            'email' => 'adminkecamatancikedung@gmail.com',
+            'password' => Hash::make('kecamatancikedung'),
+            'user_type' => 'admin_kecamatan',
+            'foto' => null,
+            'id_kecamatan' => 7,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Gabuswetan',
-        //     'email' => 'adminkecamatangabuswetan@gmail.com',
-        //     'password' => Hash::make('kecamatangabuswetan'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 8,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Gabuswetan',
+            'email' => 'adminkecamatangabuswetan@gmail.com',
+            'password' => Hash::make('kecamatangabuswetan'),
+            'user_type' => 'admin_kecamatan',
+        'foto' => null,
+            'id_kecamatan' => 8,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Gantar',
-        //     'email' => 'adminkecamatangantar@gmail.com',
-        //     'password' => Hash::make('kecamatangantar'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 9,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Gantar',
+            'email' => 'adminkecamatangantar@gmail.com',
+            'password' => Hash::make('kecamatangantar'),
+            'user_type' => 'admin_kecamatan',
+        'foto' => null,
+            'id_kecamatan' => 9,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Haurgeulis',
-        //     'email' => 'adminkecamatanhaurgeulis@gmail.com',
-        //     'password' => Hash::make('kecamatanhaurgeulis'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 10,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Haurgeulis',
+            'email' => 'adminkecamatanhaurgeulis@gmail.com',
+            'password' => Hash::make('kecamatanhaurgeulis'),
+            'user_type' => 'admin_kecamatan',
+        'foto' => null,
+            'id_kecamatan' => 10,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Indramayu',
-        //     'email' => 'adminkecamatanindramayu@gmail.com',
-        //     'password' => Hash::make('kecamatanindramayu'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 11,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Indramayu',
+            'email' => 'adminkecamatanindramayu@gmail.com',
+            'password' => Hash::make('kecamatanindramayu'),
+            'user_type' => 'admin_kecamatan',
+        'foto' => null,
+            'id_kecamatan' => 11,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Jatibarang',
-        //     'email' => 'adminkecamatanjatibarang@gmail.com',
-        //     'password' => Hash::make('kecamatanjatibarang'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 12,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Jatibarang',
+            'email' => 'adminkecamatanjatibarang@gmail.com',
+            'password' => Hash::make('kecamatanjatibarang'),
+            'user_type' => 'admin_kecamatan',
+        'foto' => null,
+            'id_kecamatan' => 12,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Juntinyuat',
-        //     'email' => 'adminkecamatanjuntinyuat@gmail.com',
-        //     'password' => Hash::make('kecamatanjuntinyuat'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 13,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Juntinyuat',
+            'email' => 'adminkecamatanjuntinyuat@gmail.com',
+            'password' => Hash::make('kecamatanjuntinyuat'),
+            'user_type' => 'admin_kecamatan',
+        'foto' => null,
+            'id_kecamatan' => 13,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Kandanghaur',
-        //     'email' => 'adminkecamatankandanghaur@gmail.com',
-        //     'password' => Hash::make('kecamatankandanghaur'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 14,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Kandanghaur',
+            'email' => 'adminkecamatankandanghaur@gmail.com',
+            'password' => Hash::make('kecamatankandanghaur'),
+            'user_type' => 'admin_kecamatan',
+        'foto' => null,
+            'id_kecamatan' => 14,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Karangampel',
-        //     'email' => 'adminkecamatankarangampel@gmail.com',
-        //     'password' => Hash::make('kecamatankarangampel'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 15,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Karangampel',
+            'email' => 'adminkecamatankarangampel@gmail.com',
+            'password' => Hash::make('kecamatankarangampel'),
+            'user_type' => 'admin_kecamatan',
+        'foto' => null,
+            'id_kecamatan' => 15,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Kedokan Bunder',
-        //     'email' => 'adminkecamatankedokanbunder@gmail.com',
-        //     'password' => Hash::make('kecamatankedokanbunder'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 16,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Kedokan Bunder',
+            'email' => 'adminkecamatankedokanbunder@gmail.com',
+            'password' => Hash::make('kecamatankedokanbunder'),
+            'user_type' => 'admin_kecamatan',
+        'foto' => null,
+            'id_kecamatan' => 16,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Kertasemaya',
-        //     'email' => 'adminkecamatankertasemaya@gmail.com',
-        //     'password' => Hash::make('kecamatankertasemaya'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 17,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Kertasemaya',
+            'email' => 'adminkecamatankertasemaya@gmail.com',
+            'password' => Hash::make('kecamatankertasemaya'),
+            'user_type' => 'admin_kecamatan',
+        'foto' => null,
+            'id_kecamatan' => 17,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Krangkeng',
-        //     'email' => 'adminkecamatankrangkeng@gmail.com',
-        //     'password' => Hash::make('kecamatankrangkeng'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 18,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Krangkeng',
+            'email' => 'adminkecamatankrangkeng@gmail.com',
+            'password' => Hash::make('kecamatankrangkeng'),
+            'user_type' => 'admin_kecamatan',
+        'foto' => null,
+            'id_kecamatan' => 18,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Anjatan',
-        //     'email' => 'adminkecamatankroya@gmail.com',
-        //     'password' => Hash::make('kecamatankroya'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 19,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Anjatan',
+            'email' => 'adminkecamatankroya@gmail.com',
+            'password' => Hash::make('kecamatankroya'),
+            'user_type' => 'admin_kecamatan',
+        'foto' => null,
+            'id_kecamatan' => 19,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Lelea',
-        //     'email' => 'adminkecamatanlelea@gmail.com',
-        //     'password' => Hash::make('kecamatanlelea'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 20,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Lelea',
+            'email' => 'adminkecamatanlelea@gmail.com',
+            'password' => Hash::make('kecamatanlelea'),
+            'user_type' => 'admin_kecamatan',
+        'foto' => null,
+            'id_kecamatan' => 20,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Lohbener',
-        //     'email' => 'adminkecamatanlohbener@gmail.com',
-        //     'password' => Hash::make('kecamatanlohbener'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 21,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Lohbener',
+            'email' => 'adminkecamatanlohbener@gmail.com',
+            'password' => Hash::make('kecamatanlohbener'),
+            'user_type' => 'admin_kecamatan',
+            'foto' => null,
+            'id_kecamatan' => 21,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Losarang',
-        //     'email' => 'adminkecamatanlosarang@gmail.com',
-        //     'password' => Hash::make('kecamatanlosarang'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 22,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Losarang',
+            'email' => 'adminkecamatanlosarang@gmail.com',
+            'password' => Hash::make('kecamatanlosarang'),
+            'user_type' => 'admin_kecamatan',
+            'foto' => null,
+            'id_kecamatan' => 22,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Pasekan',
-        //     'email' => 'adminkecamatanpasekan@gmail.com',
-        //     'password' => Hash::make('kecamatanpasekan'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 23,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Pasekan',
+            'email' => 'adminkecamatanpasekan@gmail.com',
+            'password' => Hash::make('kecamatanpasekan'),
+            'user_type' => 'admin_kecamatan',
+        'foto' => null,
+            'id_kecamatan' => 23,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Patrol',
-        //     'email' => 'adminkecamatanpatrol@gmail.com',
-        //     'password' => Hash::make('kecamatanpatrol'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 24,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Patrol',
+            'email' => 'adminkecamatanpatrol@gmail.com',
+            'password' => Hash::make('kecamatanpatrol'),
+            'user_type' => 'admin_kecamatan',
+        'foto' => null,
+            'id_kecamatan' => 24,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Sindang',
-        //     'email' => 'adminkecamatansindang@gmail.com',
-        //     'password' => Hash::make('kecamatansindang'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 25,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Sindang',
+            'email' => 'adminkecamatansindang@gmail.com',
+            'password' => Hash::make('kecamatansindang'),
+            'user_type' => 'admin_kecamatan',
+            'foto' => null,
+            'id_kecamatan' => 25,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Sliyeg',
-        //     'email' => 'adminkecamatansliyeg@gmail.com',
-        //     'password' => Hash::make('kecamatansliyeg'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 26,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Sliyeg',
+            'email' => 'adminkecamatansliyeg@gmail.com',
+            'password' => Hash::make('kecamatansliyeg'),
+            'user_type' => 'admin_kecamatan',
+        'foto' => null,
+            'id_kecamatan' => 26,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Sukagumiwang',
-        //     'email' => 'adminkecamatansukagumiwang@gmail.com',
-        //     'password' => Hash::make('kecamatansukagumiwang'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 27,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Sukagumiwang',
+            'email' => 'adminkecamatansukagumiwang@gmail.com',
+            'password' => Hash::make('kecamatansukagumiwang'),
+            'user_type' => 'admin_kecamatan',
+        'foto' => null,
+            'id_kecamatan' => 27,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Sukra',
-        //     'email' => 'adminkecamatansukra@gmail.com',
-        //     'password' => Hash::make('kecamatansukra'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 28,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Sukra',
+            'email' => 'adminkecamatansukra@gmail.com',
+            'password' => Hash::make('kecamatansukra'),
+            'user_type' => 'admin_kecamatan',
+        'foto' => null,
+            'id_kecamatan' => 28,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Trisi',
-        //     'email' => 'adminkecamatantrisi@gmail.com',
-        //     'password' => Hash::make('kecamatantrisi'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 29,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Trisi',
+            'email' => 'adminkecamatantrisi@gmail.com',
+            'password' => Hash::make('kecamatantrisi'),
+            'user_type' => 'admin_kecamatan',
+            'foto' => null,
+            'id_kecamatan' => 29,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Tukdana',
-        //     'email' => 'adminkecamatantukdana@gmail.com',
-        //     'password' => Hash::make('kecamatantukdana'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 30,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Tukdana',
+            'email' => 'adminkecamatantukdana@gmail.com',
+            'password' => Hash::make('kecamatantukdana'),
+            'user_type' => 'admin_kecamatan',
+            'foto' => null,
+            'id_kecamatan' => 30,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
-        // $admin_kecamatan = User::create([
-        //     'name' => 'Admin PKK Kecamatan Widasari',
-        //     'email' => 'adminkecamatanwidasari@gmail.com',
-        //     'password' => Hash::make('kecamatanwidasari'),
-        //     'user_type' => 'admin_kecamatan',
-        // 'foto' => null,
-        //     'id_kecamatan' => 31,
-        //     'id_desa' => null,
-        // ]);
-        // $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
+        $admin_kecamatan = User::create([
+            'name' => 'Admin PKK Kecamatan Widasari',
+            'email' => 'adminkecamatanwidasari@gmail.com',
+            'password' => Hash::make('kecamatanwidasari'),
+            'user_type' => 'admin_kecamatan',
+            'foto' => null,
+            'id_kecamatan' => 31,
+            'id_desa' => null,
+        ]);
+        $admin_kecamatan->assignRole(Role::ROLE_ADMIN);
 
         // AKUN Kader
         $kader_desa = User::create([
