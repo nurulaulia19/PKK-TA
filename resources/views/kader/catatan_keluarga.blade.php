@@ -105,7 +105,7 @@
                                                     <td style="vertical-align: middle;">{{ucfirst($data_warga->berkebutuhan_khusus)}}</td>
 
                                                     @foreach ($kategori_kegiatans as $kategori_kegiatan)
-                                                    
+
                                                         <td>
                                                             @if ($data_kegiatan_wargas = $data_warga->kegiatan)
                                                                 <ul>
@@ -123,10 +123,8 @@
                                             @endforeach
                                     </tbody>
                                 </table>
-                                {{-- <a href="{{ url('print_cakel', $print_cakel->id_keluarga) }}" target="_blank" class="btn btn-primary" type="button" role="button">
-                                <i class="fas fa-print"></i> Cetak ke Printer </a> --}}
 
-                                <a href="{{ url('print_pdf_cakel', $print_pdf_cakel->id_keluarga) }}" target="_blank" class="btn btn-success" type="button" role="button">
+                                <a href="{{ url('print_pdf_cakel', $print_pdf_cakel->id) }}" target="_blank" class="btn btn-success" type="button" role="button">
                                 <i class="fas fa-print"></i> Cetak ke PDF </a><br>
                             </div>
                         </div>

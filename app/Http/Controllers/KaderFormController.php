@@ -110,7 +110,7 @@ class KaderFormController extends Controller
 
      // halaman data rekap data warga pkk
     public function rekap_data_warga($id){
-        $kepala_keluarga = DataWarga::findOrFail($id);
+        // $kepala_keluarga = DataWarga::findOrFail($id);
         // dd($kepala_keluarga);
         // $warga =  DataWarga::where('id_keluarga', $id)->get();
         // // dd($warga);
@@ -132,119 +132,167 @@ class KaderFormController extends Controller
 
 
 
-        return view('kader.data_rekap', compact('warga', 'print','print_pdf'));
+        return view('kader.data_rekap', compact('warga', 'print','print_pdf','kepala_keluarga'));
     }
 
      // print halaman data rekap data warga pkk
-     public function print($id){
-        $kepala_keluarga = DataWarga::findOrFail($id)->first();
-        // dd($kepala_keluarga);
-        $warga = DataWarga::where('id_keluarga', $id)
-        ->get();
+    //  public function print($id){
+    //     // $kepala_keluarga = DataWarga::findOrFail($id)->first();
+    //     // dd($kepala_keluarga);
+    //     // $warga = DataWarga::where('id_keluarga', $id)
+    //     // ->get();
+    //     $kepala_keluarga = DataWarga::findOrFail($id);
+    //     // dd($kepala_keluarga);
+    //     // Mengambil semua data warga untuk keluarga yang sesuai dengan $id_kepala_keluarga
+    //     $warga =  DataWarga::where('id_keluarga', $kepala_keluarga->id_keluarga)->get();
 
-
-        return view('kader.print_rekap', compact('warga'));
-    }
+    //     return view('kader.print_rekap', compact('warga'));
+    // }
 
      // print halaman data rekap data warga pkk
-     public function print_pdf($id){
-        $kepala_keluarga = DataWarga::findOrFail($id)->first();
-        $warga = DataWarga::where('id_keluarga', $id)
-        ->get();
-        // dd($kepala_keluarga);
+    //  public function print_pdf($id){
+    //     // $kepala_keluarga = DataWarga::findOrFail($id)->first();
+    //     // // dd($kepala_keluarga);
+    //     // $warga = DataWarga::where('id_keluarga', $id)
+    //     // ->get();
+    //     // dd($kepala_keluarga);
+    //     $kepala_keluarga = DataWarga::findOrFail($id);
+    //     // dd($kepala_keluarga);
+    //     // Mengambil semua data warga untuk keluarga yang sesuai dengan $id_kepala_keluarga
+    //     $warga =  DataWarga::where('id_keluarga', $kepala_keluarga->id_keluarga)->get();
 
-        $html= view('kader.print_rekap_pdf', compact('warga'));
-        // instantiate and use the dompdf class
+    //     $html= view('kader.print_rekap_pdf', compact('warga'));
+    //     // instantiate and use the dompdf class
+    //     $dompdf = new Dompdf();
+    //     $dompdf->loadHtml($html);
+
+    //     // (Optional) Setup the paper size and orientation
+    //     $dompdf->setPaper('A4', 'landscape');
+
+    //     // Render the HTML as PDF
+    //     $dompdf->render();
+
+    //     // Output the generated PDF to Browser
+    //     $dompdf->stream();
+    // }
+
+    public function printPDF($id) {
+        $kepala_keluarga = DataWarga::findOrFail($id);
+        $warga =  DataWarga::where('id_keluarga', $kepala_keluarga->id_keluarga)->get();
+        $print = DataWarga::where('id_keluarga', $kepala_keluarga->id_keluarga)->first();
+        $print_pdf = DataWarga::where('id_keluarga', $kepala_keluarga->id_keluarga)->first();
+
+        // Render the view into HTML
+        $html = view('kader.print_rekap_pdf', compact('warga', 'print', 'print_pdf'));
+
+        // Instantiate Dompdf with our view content
         $dompdf = new Dompdf();
         $dompdf->loadHtml($html);
 
-        // (Optional) Setup the paper size and orientation
+        // (Optional) Set the paper size and orientation
         $dompdf->setPaper('A4', 'landscape');
 
         // Render the HTML as PDF
         $dompdf->render();
 
-        // Output the generated PDF to Browser
-        $dompdf->stream();
+        // Output the generated PDF (inline view or download)
+        $dompdf->stream("data_rekap.pdf");
     }
+
 
     // halaman data catatan keluarga pkk
      public function catatan_keluarga($id)
      {
-        $kepala_keluarga = DataWarga::find($id);
+        // $kepala_keluarga = DataWarga::find($id);
+        // // dd($kepala_keluarga);
 
-        $keluarga = DataKeluarga::first();
-
+        // $keluarga = DataKeluarga::first();
+        // // dd($keluarga);
         // $catatan_keluarga = DataWarga::query()
         //     ->with(['kegiatan', 'kegiatan.kategori_kegiatan',
-        //         'kegiatan.keterangan_kegiatan','kepalaKeluarga', 'keluarga'])
-        //     ->where('nik_kepala_keluarga', $kepala_keluarga->no_ktp)
+        //         'kegiatan.keterangan_kegiatan', 'keluarga', 'dasawisma'])
+        //     ->where('id_keluarga', $id)
         //     ->get();
+
+        $kepala_keluarga = DataWarga::find($id);
+
+        $keluarga = DataKeluarga::where('id', $kepala_keluarga->id_keluarga)->first();
+
         $catatan_keluarga = DataWarga::query()
             ->with(['kegiatan', 'kegiatan.kategori_kegiatan',
                 'kegiatan.keterangan_kegiatan', 'keluarga', 'dasawisma'])
-            ->where('id_keluarga', $id)
+            ->where('id_keluarga', $kepala_keluarga->id_keluarga)
             ->get();
-        // dump($catatan_keluarga);
+
+            // dd($catatan_keluarga);
+
 
         $kategori_kegiatans = KategoriKegiatan::query()->where('id', '<=', 8)->get();
+        // dd($kategori_kegiatans);
 
-        // $print_cakel = DataWarga::where('nik_kepala_keluarga', $kepala_keluarga->no_ktp)
+        // $print_cakel = DataWarga::where('id_keluarga', $id)
         // ->first();
-        $print_cakel = DataWarga::where('id_keluarga', $id)
-        ->first();
+        // dd($print_cakel);
 
-        // $print_pdf_cakel = DataWarga::where('nik_kepala_keluarga', $kepala_keluarga->no_ktp)
+        // $print_pdf_cakel = DataWarga::where('id_keluarga', $id)
         // ->first();
-
-        $print_pdf_cakel = DataWarga::where('id_keluarga', $id)
-        ->first();
-
+        $print_cakel = DataWarga::where('id_keluarga', $kepala_keluarga->id_keluarga)->first();
+        // dd($print_cakel);
+        // Mengambil data print kedua untuk keluarga yang sesuai dengan $id_kepala_keluarga
+        $print_pdf_cakel = DataWarga::where('id_keluarga', $kepala_keluarga->id_keluarga)->first();
+        // dd($print_cakel);
         return view('kader.catatan_keluarga', compact('catatan_keluarga', 'keluarga', 'kepala_keluarga', 'kategori_kegiatans', 'print_cakel', 'print_pdf_cakel'));
     }
 
     // print halaman data rekap catatan data keluarga pkk
-    public function print_cakel($id){
-        $kepala_keluarga = DataWarga::find($id)->first();
+    // public function print_cakel($id){
+    // //     $kepala_keluarga = DataWarga::find($id)->first();
 
-       // $keluarga = DataKeluarga::where('id_warga', $kepala_keluarga->id)->first();
-       $keluarga = DataKeluarga::first();
+    // //    $keluarga = DataKeluarga::first();
+    // //    $catatan_keluarga = DataWarga::query()
+    // //        ->with(['kegiatan', 'kegiatan.kategori_kegiatan',
+    // //            'kegiatan.keterangan_kegiatan', 'keluarga', 'dasawisma'])
+    // //        ->where('id_keluarga', $id)
+    // //        ->get();
+    // //    // dump($catatan_keluarga);
+    // $kepala_keluarga = DataWarga::find($id);
+    // // dd( $kepala_keluarga );
 
-       // $catatan_keluarga = DataWarga::query()
-       //     ->with(['kegiatan', 'kegiatan.kategori_kegiatan',
-       //         'kegiatan.keterangan_kegiatan','kepalaKeluarga', 'keluarga'])
-       //     ->where('nik_kepala_keluarga', $kepala_keluarga->no_ktp)
-       //     ->get();
-       $catatan_keluarga = DataWarga::query()
-           ->with(['kegiatan', 'kegiatan.kategori_kegiatan',
-               'kegiatan.keterangan_kegiatan', 'keluarga', 'dasawisma'])
-           ->where('id_keluarga', $id)
-           ->get();
-       // dump($catatan_keluarga);
+    // $keluarga = DataKeluarga::where('id', $kepala_keluarga->id_keluarga)->first();
 
-       $kategori_kegiatans = KategoriKegiatan::query()->where('id', '<=', 8)->get();
+    // $catatan_keluarga = DataWarga::query()
+    //     ->with(['kegiatan', 'kegiatan.kategori_kegiatan',
+    //         'kegiatan.keterangan_kegiatan', 'keluarga', 'dasawisma'])
+    //     ->where('id_keluarga', $kepala_keluarga->id_keluarga)
+    //     ->get();
 
-        return view('kader.print_rekap_cakel', compact('catatan_keluarga', 'keluarga', 'kepala_keluarga', 'kategori_kegiatans'));
-    }
+    //    $kategori_kegiatans = KategoriKegiatan::query()->where('id', '<=', 8)->get();
+
+    //     return view('kader.print_rekap_cakel', compact('catatan_keluarga', 'keluarga', 'kepala_keluarga', 'kategori_kegiatans'));
+    // }
 
      // print halaman data rekap data warga pkk
      public function print_pdf_cakel($id){
-        $kepala_keluarga = DataWarga::find($id)->first();
+        // $kepala_keluarga = DataWarga::find($id)->first();
 
-        // $keluarga = DataKeluarga::where('id_warga', $kepala_keluarga->id)->first();
-        $keluarga = DataKeluarga::first();
-
+        // // $keluarga = DataKeluarga::where('id_warga', $kepala_keluarga->id)->first();
+        // $keluarga = DataKeluarga::first();
         // $catatan_keluarga = DataWarga::query()
         //     ->with(['kegiatan', 'kegiatan.kategori_kegiatan',
-        //         'kegiatan.keterangan_kegiatan','kepalaKeluarga', 'keluarga'])
-        //     ->where('nik_kepala_keluarga', $kepala_keluarga->no_ktp)
+        //         'kegiatan.keterangan_kegiatan', 'keluarga', 'dasawisma'])
+        //     ->where('id_keluarga', $id)
         //     ->get();
+        // dump($catatan_keluarga);
+        $kepala_keluarga = DataWarga::find($id);
+        // dd( $kepala_keluarga );
+
+        $keluarga = DataKeluarga::where('id', $kepala_keluarga->id_keluarga)->first();
+
         $catatan_keluarga = DataWarga::query()
             ->with(['kegiatan', 'kegiatan.kategori_kegiatan',
                 'kegiatan.keterangan_kegiatan', 'keluarga', 'dasawisma'])
-            ->where('id_keluarga', $id)
+            ->where('id_keluarga', $kepala_keluarga->id_keluarga)
             ->get();
-        // dump($catatan_keluarga);
 
         $kategori_kegiatans = KategoriKegiatan::query()->where('id', '<=', 8)->get();
 

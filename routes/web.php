@@ -234,12 +234,15 @@ Route::middleware(['user_type:kader_dasawisma'])->group(function(){
     Route::get('/rekap_data_warga/{id}/rekap_data_warga', [KaderFormController::class, 'rekap_data_warga']);
 
     //print rekap anggota keluarga
-    Route::get('/print/{id}', [KaderFormController::class, 'print']);
-    Route::get('/print_pdf/{id}', [KaderFormController::class, 'print_pdf']);
+    // Route::get('/print/{id}', [KaderFormController::class, 'print']);
+    // Route::get('/print_pdf/{id}', [KaderFormController::class, 'print_pdf']);
+    Route::get('/print_pdf/{id}',  [KaderFormController::class, 'printPDF'])->name('print.pdf');
+
 
     //print rekap anggota keluarga
-    Route::get('/print_cakel/{id}', [KaderFormController::class, 'print_cakel']);
+    // Route::get('/print_cakel/{id}', [KaderFormController::class, 'print_cakel']);
     Route::get('/print_pdf_cakel/{id}', [KaderFormController::class, 'print_pdf_cakel']);
+
 
     // rekap catatan keluarga
     Route::get('/catatan_keluarga/{id}/catatan_keluarga', [KaderFormController::class, 'catatan_keluarga']);
