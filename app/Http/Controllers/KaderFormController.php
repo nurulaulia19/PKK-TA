@@ -111,38 +111,37 @@ class KaderFormController extends Controller
      // halaman data rekap data warga pkk
     public function rekap_data_warga($id){
         $kepala_keluarga = DataWarga::findOrFail($id);
-
-        // $warga = DataWarga::where('nik_kepala_keluarga', $kepala_keluarga->no_ktp)
-        // ->get();
-        // $warga = DB::table('data_warga')
-        // ->join('data_keluarga', 'data_keluarga.id', '=', 'data_warga.id_keluarga' )
-        // // ->where('nama_kepala_keluarga', $id)
-        // ->get();
-
-        $warga =  DataWarga::where('id_keluarga', $id)->get();
-        // $print = DataWarga::where('nik_kepala_keluarga', $kepala_keluarga->no_ktp)
+        // dd($kepala_keluarga);
+        // $warga =  DataWarga::where('id_keluarga', $id)->get();
+        // // dd($warga);
+        // $print = DataWarga::where('id_keluarga', $id)
         // ->first();
-
-        // $print_pdf = DataWarga::where('nik_kepala_keluarga', $kepala_keluarga->no_ktp)
+        // $print_pdf = DataWarga::where('id_keluarga', $id)
         // ->first();
-        $print = DataWarga::where('id_keluarga', $id)
-        ->first();
+        // Mengambil kepala keluarga
+        $kepala_keluarga = DataWarga::findOrFail($id);
 
-        $print_pdf = DataWarga::where('id_keluarga', $id)
-        ->first();
+        // Mengambil semua data warga untuk keluarga yang sesuai dengan $id_kepala_keluarga
+        $warga =  DataWarga::where('id_keluarga', $kepala_keluarga->id_keluarga)->get();
 
-        // dd($warga);
+        // Mengambil data print pertama untuk keluarga yang sesuai dengan $id_kepala_keluarga
+        $print = DataWarga::where('id_keluarga', $kepala_keluarga->id_keluarga)->first();
+        // dd($print);
+        // Mengambil data print kedua untuk keluarga yang sesuai dengan $id_kepala_keluarga
+        $print_pdf = DataWarga::where('id_keluarga', $kepala_keluarga->id_keluarga)->first();
+
+
+
         return view('kader.data_rekap', compact('warga', 'print','print_pdf'));
     }
 
      // print halaman data rekap data warga pkk
      public function print($id){
         $kepala_keluarga = DataWarga::findOrFail($id)->first();
-
-        // $warga = DataWarga::where('nik_kepala_keluarga', $kepala_keluarga->no_ktp)
-        // ->get();
+        // dd($kepala_keluarga);
         $warga = DataWarga::where('id_keluarga', $id)
         ->get();
+
 
         return view('kader.print_rekap', compact('warga'));
     }
@@ -150,11 +149,9 @@ class KaderFormController extends Controller
      // print halaman data rekap data warga pkk
      public function print_pdf($id){
         $kepala_keluarga = DataWarga::findOrFail($id)->first();
-
-        // $warga = DataWarga::where('nik_kepala_keluarga', $kepala_keluarga->no_ktp)
-        // ->get();
         $warga = DataWarga::where('id_keluarga', $id)
         ->get();
+        // dd($kepala_keluarga);
 
         $html= view('kader.print_rekap_pdf', compact('warga'));
         // instantiate and use the dompdf class

@@ -51,7 +51,7 @@
                                         <div class="form-group ">
                                             <label>Dasa Wisma</label>
                                             <select class="form-control" id="id_dasawisma" name="id_dasawisma">
-                                                <option value="" hidden> Pilih Dasa Wisma</option>
+                                                {{-- <option value="" hidden> Pilih Dasa Wisma</option> --}}
                                                 @foreach ($dasawisma as $c)
                                                     @if ($kader->id_dasawisma == $c->id)
                                                     <option selected value="{{$c->id}}">{{ $c->nama_dasawisma }}</option>

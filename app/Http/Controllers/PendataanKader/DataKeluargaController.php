@@ -47,13 +47,16 @@ class DataKeluargaController extends Controller
     $kad = DB::table('users')
     ->where('id', auth()->user()->id)
     ->get();
+    $kader = DB::table('users')
+    ->where('id', auth()->user()->id)
+    ->first();
 
      $keg = DataKeluarga::all();
      $warga = DataWarga::all();
      $dasawisma = DataKelompokDasawisma::all();
 
     //  dd($kec);
-     return view('kader.data_kegiatan.form.create_data_keluarga', compact( 'warga', 'kec', 'desas', 'kad', 'dasawisma'));
+     return view('kader.data_kegiatan.form.create_data_keluarga', compact('warga', 'kec', 'desas', 'kad', 'dasawisma', 'kader'));
 
     }
 
