@@ -112,7 +112,7 @@
               </li>
               <li class="nav-item has-treeview">
                 <a href="/dashboard_kec/desa" class="nav-link {{ Request::is('dashboard_kec.desa') ? 'active':'' }}">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <i class="nav-icon fas fa-landmark"></i>
                   <p>
                     Data Desa
                   </p>

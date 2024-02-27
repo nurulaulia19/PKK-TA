@@ -31,4 +31,8 @@ class DataKelompokDasawisma extends Model
     public function warga(){
         return $this->hasMany(DataWarga::class, 'id');
     }
+
+
+
+
 }

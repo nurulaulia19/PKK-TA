@@ -120,7 +120,7 @@ class RekapKelompokRWExport implements FromArray, WithHeadings, WithEvents
     {
         $headings = [
             'No',
-            'No. RT',
+            'Kode. RT',
             'Jml. Dasawisma',
             'Jml. KRT',
             'Jml. KK',

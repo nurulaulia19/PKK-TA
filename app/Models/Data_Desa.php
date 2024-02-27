@@ -49,4 +49,7 @@ class Data_Desa extends Model
     public function anggota_kader(){
         return $this->hasMany(DataAnggotaKader::class);
     }
+
+  
+
 }

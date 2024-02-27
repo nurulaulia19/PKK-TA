@@ -10,7 +10,9 @@ use App\Models\DataGaleri;
 use Illuminate\Http\Request;
 use App\Models\DataKecamatan;
 use App\Http\Controllers\Controller;
+use App\Models\DataDusun;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class DesaController extends Controller
 {
@@ -46,4 +48,61 @@ class DesaController extends Controller
         return view('admin_kec.desa', compact('desaAll','berita', 'desa', 'kecamatan', 'user', 'agenda', 'galeri'));
 
     }
+
+    // public function rekapitulasi($id) {
+    //     // Ambil data desa berdasarkan ID
+    //     $desa = Data_Desa::find($id);
+    //     // dd($desa);
+    //     // Lakukan logika untuk menampilkan rekapitulasi desa
+    //     // Misalnya, kembalikan view dengan data desa
+    //     return view('admin_kec.rekapitulasi_desa', compact('desa'));
+    // }
+
+    public function rekapitulasi($id) {
+        // Ambil data desa berdasarkan ID
+        $desa = Data_Desa::find($id);
+
+        // Ambil data keluarga berdasarkan ID desa
+        $keluarga = DB::table('data_keluarga')
+            ->where('id_desa', $id)
+            ->select('periode')
+            ->distinct()
+            ->get();
+
+        return view('admin_kec.rekapitulasi_desa', compact('desa', 'keluarga'));
+    }
+
+    public function rekap_desa($id, Request $request)
+    {
+        // Dapatkan data desa berdasarkan ID
+        $desa = Data_Desa::findOrFail($id);
+        // dd($desa);
+        $user = Auth::user();
+        $kecamatan = $user->kecamatan;
+        // Ambil data dari permintaan
+        $dasa_wisma = $request->query('dasa_wisma');
+        $rt = $request->query('rt');
+        $rw = $request->query('rw');
+        $dusun = $request->query('dusun');
+
+        $periode = $request->query('periode');
+        // dd($periode);
+
+        // Dapatkan data dusun berdasarkan ID desa dan parameter lainnya
+        $dusuns = DataDusun::getDusun($id, $dusun, $rw, $rt, $periode);
+        // dd($dusuns);
+
+        // Kirim data ke view
+        return view('admin_kec.data_rekap_desa', compact(
+            'dusuns',
+            'dusun',
+            'rw',
+            'periode',
+            'desa',
+            'kecamatan'
+        ));
+    }
+
+
+
 }

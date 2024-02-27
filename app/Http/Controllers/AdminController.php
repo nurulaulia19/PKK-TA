@@ -387,6 +387,7 @@ class AdminController extends Controller
             $periode = $request->query('periode');
 
             $dusuns = DataDusun::getDusun($desa->id,$dusun, $rw,$rt, $periode);
+            // dd($dusuns);
             return view('admin_desa.data_rekap.data_rekap_pkk_desa', compact(
                 'dusuns',
                 'dusun',

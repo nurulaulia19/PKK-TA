@@ -29,7 +29,7 @@
                                     <thead>
                                         <tr>
                                         <th rowspan="3" style="text-align: center;">No</th>
-                                        <th rowspan="3" style="text-align: center;">No.RT</th>
+                                        <th rowspan="3" style="text-align: center;">Kode RT</th>
                                         <th rowspan="3" style="text-align: center;">Jml. Dasa Wisma</th>
                                         <th rowspan="3" style="text-align: center;">Jml. KRT</th>
                                         <th rowspan="3" style="text-align: center;">Jml. KK</th>
