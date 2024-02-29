@@ -35,6 +35,7 @@ class AdminController extends Controller
             ->get()->count();
 
             $dasaWismas = DataKelompokDasawisma::count();
+            
             return view('admin_desa.dashboard', compact('kader', 'dasaWismas'));
         }
 

@@ -12,15 +12,13 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-lg-3 col-6">
+          {{-- <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                {{-- <h3>53<sup style="font-size: 20px">%</sup></h3> --}}
-                {{-- <h3>150</h3> --}}
-
                 <p>Rekapitulasi Catatan Data dan
-                    <br>Kegiatan Warga Kelompok Dasawisma</p>
+                    <br>Kegiatan Warga Kelompok Dasawisma
+                </p>
               </div>
               <div class="icon">
                 <i class="ion ion-folder"></i>
@@ -29,7 +27,26 @@
                 >Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i
               ></a>
             </div>
+          </div> --}}
+          <div class="col-lg-3 col-6" style="position: relative;">
+            <!-- small box -->
+            <div class="small-box bg-success">
+                <div class="inner">
+                    <p>Rekapitulasi Catatan Data dan
+                        <br>Kegiatan Warga Kelompok Dasawisma
+                    </p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-folder"></i>
+                </div>
+                <!-- Notifikasi jumlah rekapan baru -->
+                <div class="notification-badge">3</div>
+                <a href="/data_kelompok_dasa_wisma" class="small-box-footer">
+                    Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i>
+                </a>
+            </div>
           </div>
+
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -38,10 +55,12 @@
                 {{-- <h3>44</h3> --}}
 
                 <p>Rekapitulasi Catatan Data dan
-                    <br>Kegiatan Warga Kelompok PKK RT</p>
+                    <br>Kegiatan Warga Kelompok PKK RT
+                </p>
               </div>
               <div class="icon">
                 <i class="ion ion-folder"></i>
+                <div class="notification-badge">3</div>
               </div>
               <a href="/data_kelompok_pkk_rt" class="small-box-footer"
                 >Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i
@@ -60,6 +79,7 @@
               </div>
               <div class="icon">
                 <i class="ion ion-folder"></i>
+                <div class="notification-badge">3</div>
               </div>
               <a href="/data_kelompok_pkk_rw" class="small-box-footer"
                 >Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i
@@ -78,6 +98,7 @@
               </div>
               <div class="icon">
                 <i class="ion ion-folder"></i>
+                <div class="notification-badge">3</div>
               </div>
               <a href="/data_kelompok_pkk_dusun" class="small-box-footer"
                 >Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i
@@ -101,6 +122,7 @@
               </div>
               <div class="icon">
                 <i class="ion ion-folder"></i>
+                <div class="notification-badge">3</div>
               </div>
               <a href="/data_kelompok_pkk_desa" class="small-box-footer"
                 >Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i
@@ -119,6 +141,7 @@
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
+                <div class="notification-badge">3</div>
               </div>
               <a href="/data_kader" class="small-box-footer"
                 >Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i
@@ -126,7 +149,7 @@
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          {{-- <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-light">
               <div class="inner">
@@ -141,7 +164,26 @@
                 >Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i
               ></a>
             </div>
+          </div> --}}
+          <div class="col-lg-3 col-6" style="position: relative;">
+            <!-- small box -->
+            <div class="small-box bg-light">
+                <div class="inner">
+                    <h3>{{ $dasaWismas }}</h3>
+                    <p>Data Dasawisma</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-folder"></i>
+                    <div class="notification-badge">3</div>
+                </div>
+                <!-- Notifikasi jumlah rekapan baru -->
+                <div class="notification-badge">3</div>
+                <a href="/data_kelompok_dasa_wisma" class="small-box-footer">
+                    Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i>
+                </a>
+            </div>
           </div>
+
           <!-- ./col -->
         </div>
         <!-- /.row -->

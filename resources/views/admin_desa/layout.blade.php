@@ -52,6 +52,8 @@
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
       rel="stylesheet"
     />
+    {{-- Dashboard --}}
+    <link rel="stylesheet" href="{{ url('css/dashboard.css') }}" />
   </head>
   <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">

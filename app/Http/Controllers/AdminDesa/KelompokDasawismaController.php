@@ -17,16 +17,31 @@ class KelompokDasawismaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // public function index()
+    // {
+    //     //halaman form data dasawisma
+    //     $dasawisma = DataKelompokDasawisma::all();
+
+    //     return view('admin_desa.data_kelompok_dasawisma', compact('dasawisma'));
+    // }
     public function index()
     {
-        //halaman form data dasawisma
-        $dasawisma = DataKelompokDasawisma::all();
+        // Get the authenticated user
+        $user = Auth::user();
 
+        // Get the user's ID
+        $userId = $user->id;
+
+        // Get the desa ID associated with the user
+        $desaId = $user->id_desa;
+
+        // Get all records from DataKelompokDasawisma table where id_desa matches the logged-in user's desa ID
+        $dasawisma = DataKelompokDasawisma::where('id_desa', $desaId)->get();
+        // dd($dasawisma);
+
+        // Pass the variables to the view
         return view('admin_desa.data_kelompok_dasawisma', compact('dasawisma'));
     }
-
-
-
 
 
     /**

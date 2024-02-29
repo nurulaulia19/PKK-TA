@@ -18,6 +18,7 @@
             </div>
             <div class="icon">
               <i class="ion ion-folder"></i>
+              <div class="notification-badge">3</div>
             </div>
             {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
             <a href="{{ route('dashboard_kec.rekapitulasi', $desa->id) }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>

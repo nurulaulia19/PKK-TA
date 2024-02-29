@@ -22,6 +22,7 @@
               </div>
               <div class="icon">
                 <i class="ion ion-folder"></i>
+                <div class="notification-badge">3</div>
               </div>
               <a href="/beritaKab" class="small-box-footer"
                 >Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i
@@ -40,6 +41,7 @@
               </div>
               <div class="icon">
                 <i class="ion ion-map"></i>
+                <div class="notification-badge">3</div>
               </div>
               <a href="/data_desa" class="small-box-footer"
                 >Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i
@@ -57,6 +59,7 @@
               </div>
               <div class="icon">
                 <i class="ion ion-map"></i>
+                <div class="notification-badge">3</div>
               </div>
               <a href="/data_kecamatan" class="small-box-footer"
                 >Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i
@@ -74,6 +77,7 @@
               </div>
               <div class="icon">
                 <i class="ion ion-calendar"></i>
+                <div class="notification-badge">3</div>
               </div>
               <a href="agendaKeg" class="small-box-footer"
                 >Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i
@@ -94,6 +98,7 @@
               </div>
               <div class="icon">
                 <i class="ion ion-images"></i>
+                <div class="notification-badge">3</div>
               </div>
               <a href="galeriKeg" class="small-box-footer"
                 >Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i
@@ -113,6 +118,7 @@
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
+                <div class="notification-badge">3</div>
               </div>
               <a href="/data_pengguna_super" class="small-box-footer"
                 >Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i
@@ -132,6 +138,7 @@
               </div>
               <div class="icon">
                 <i class="ion ion-folder"></i>
+                <div class="notification-badge">3</div>
               </div>
               <a href="/data_kelompok_pkk_kec" class="small-box-footer"
                 >Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i
@@ -151,6 +158,7 @@
               </div>
               <div class="icon">
                 <i class="ion ion-folder"></i>
+                <div class="notification-badge">3</div>
               </div>
               <a href="#" class="small-box-footer"
                 >Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i

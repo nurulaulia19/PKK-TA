@@ -14,14 +14,16 @@
       href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
     />
 
- <!-- DataTables -->
- {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css"/> --}}
-  <link rel="stylesheet" href="{{url('admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
-  <link rel="stylesheet" href="{{url('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
+    {{-- Dashboard --}}
+    <link rel="stylesheet" href="{{ url('css/dashboard.css') }}" />
+    <!-- DataTables -->
+    {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css"/> --}}
+    <link rel="stylesheet" href="{{url('admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{url('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
 
-<!-- Favicons -->
-<link href="{{ url ('image/remove.png') }}" rel="icon" />
-<link href="{{ url ('image/remove.png') }}" rel="apple-touch-icon" />
+    <!-- Favicons -->
+    <link href="{{ url ('image/remove.png') }}" rel="icon" />
+    <link href="{{ url ('image/remove.png') }}" rel="apple-touch-icon" />
 
     <!-- Tempusdominus Bbootstrap 4 -->
     <link
@@ -118,84 +120,6 @@
                   </p>
                 </a>
               </li>
-
-              {{-- <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-copy"></i>
-                  <p>
-                    Data Kegiatan POKJA
-                    <i class="fas fa-angle-left right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="/data_pokja1_kec" class="nav-link {{ Request::is('data_pokja1_kec') ? 'active':'' }}">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Data POKJA I</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="/data_pokja2_kec" class="nav-link {{ Request::is('data_pokja2_kec') ? 'active':'' }}">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Data POKJA II</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="/data_pokja3_kec" class="nav-link {{ Request::is('data_pokja3_kec') ? 'active':'' }}">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Data POKJA III</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="/data_pokja4_kec" class="nav-link {{ Request::is('data_pokja4_kec') ? 'active':'' }}">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Data POKJA IV</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="/data_umum_kec" class="nav-link {{ Request::is('data_umum_kec') ? 'active':'' }}">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Data Sekretariat/<br>Data Umum</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li class="nav-item">
-                <a href="/data_kader" class="nav-link">
-                <i class="nav-icon fas fa-user"></i>
-                  <p>Data Kader TP PKK</p>
-                </a>
-              </li> --}}
-
-              {{-- <li class="nav-item">
-                <a href="/rekap_kegiatan_kec" class="nav-link">
-                    <i class="nav-icon fas fa-folder-open"></i>
-                  <p>Data Catatan Data dan <br> Kegiatan Warga TP PKK <br> Kecamatan</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="/laporan" class="nav-link">
-                    <i class="nav-icon fas fa-folder-open"></i>
-                  <p>Data Laporan</p>
-                </a>
-              </li> --}}
-
-
-
-              {{-- <li class="nav-item">
-                <a class="nav-link" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-                    <i class="nav-icon fas fa-sign-out-alt"></i>
-                    Keluar
-                </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-              </li> --}}
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
