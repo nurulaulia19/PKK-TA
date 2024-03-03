@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\AdminKec;
 
+use App\Entities\Desa;
+use App\Exports\RekapKelompokDesaExport;
 use App\Models\User;
 use App\Models\BeritaKab;
 use App\Models\Data_Desa;
@@ -13,6 +15,7 @@ use App\Http\Controllers\Controller;
 use App\Models\DataDusun;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DesaController extends Controller
 {
@@ -103,6 +106,30 @@ class DesaController extends Controller
         ));
     }
 
+    public function export(Request $request, $id)
+        {
+            /** @var User */
+            $user = Auth::user();
+            // dd($user);
+            $desa = Data_Desa::findOrFail($id);
+            $kecamatan = $user->kecamatan;
+            $dasa_wisma = $request->query('dasa_wisma');
+            $rt = $request->query('rt');
+            $rw = $request->query('rw');
+            $dusun = $request->query('dusun');
+            $periode = $request->query('periode');
 
+            $dusuns = DataDusun::getDusun($id,$dusun, $rw,$rt, $periode);
+            $export = new RekapKelompokDesaExport(compact(
+                'dusuns',
+                'dusun',
+                'kecamatan',
+                'rw',
+                'periode',
+                'desa',
+            ));
+
+            return Excel::download($export, 'rekap-kelompok-desa.xlsx');
+        }
 
 }

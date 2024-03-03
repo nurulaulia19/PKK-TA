@@ -199,7 +199,7 @@ Route::middleware(['user_type:admin_kecamatan'])->group(function(){
     Route::get('/dashboard_kec/desa', [DesaController::class, 'desa'])->name('dashboard_kec.desa');
     Route::get('/dashboard_kec/rekapitulasi-desa/{id}', [DesaController::class, 'rekapitulasi'])->name('dashboard_kec.rekapitulasi');
     Route::get('/rekap_desa/{id}', [DesaController::class, 'rekap_desa'])->name('rekap_desa');
-
+    Route::get('/export_rekap_desa/kecamatan/{id}', [DesaController::class, 'export'])->name('export_rekap_desa_kecamatan');
 });
 
 Auth::routes();

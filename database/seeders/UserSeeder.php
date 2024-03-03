@@ -3934,6 +3934,7 @@ class UserSeeder extends Seeder
             'email' => 'agus@gmail.com',
             'password' => Hash::make('agus'),
             'user_type' => 'kader_dasawisma',
+            'id_dasawisma' => 1,
             'foto' => null,
             'id_kecamatan' => 1,
             'id_desa' => 1,

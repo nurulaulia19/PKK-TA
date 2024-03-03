@@ -160,7 +160,7 @@
                                 </table>
 
                             </div>
-                            <a href="{{ url('export_rekap_desa').'?'.http_build_query(compact('periode')) }}" target="_blank" class="btn btn-success" type="button" role="button">
+                            <a href="{{ url('export_rekap_desa/kecamatan', ['id' => $desa->id]).'?'.http_build_query(compact('periode')) }}" target="_blank" class="btn btn-success" type="button" role="button">
                                 <i class="fas fa-print"></i> Cetak ke Excel </a><br>
                         </div>
 

@@ -30,6 +30,9 @@ class KaderFormController extends Controller
         $keluarga = DataKeluarga::
         where('id_user', $user->id)
         ->get()->count();
+        $keluargaUpdate = DataKeluarga::
+        where('id_user', $user->id)->where('dilihat',false)
+        ->get()->count();
 
         $warga = DataWarga::
         where('id_user', $user->id)
@@ -51,7 +54,7 @@ class KaderFormController extends Controller
         ->where('id_user', $user->id)
         ->get()->count();
 
-        return view('kader.dashboard', compact('keluarga', 'warga', 'kegiatan', 'pemanfaatan', 'industri',  'rekap'));
+        return view('kader.dashboard', compact('keluarga', 'warga', 'kegiatan', 'pemanfaatan', 'industri',  'rekap', 'keluargaUpdate'));
     }
 
     public function notif()

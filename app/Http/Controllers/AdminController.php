@@ -35,7 +35,7 @@ class AdminController extends Controller
             ->get()->count();
 
             $dasaWismas = DataKelompokDasawisma::count();
-            
+
             return view('admin_desa.dashboard', compact('kader', 'dasaWismas'));
         }
 
@@ -377,14 +377,17 @@ class AdminController extends Controller
         // rekap catatan data dan kegiatan warga kelompok desa admin desa
         public function rekap_pkk_desa(Request $request)
         {
+            // dd($request->all());
 
             $user = Auth::user();
+
             $desa = $user->desa;
             $kecamatan = $user->kecamatan;
             $dasa_wisma = $request->query('dasa_wisma');
             $rt = $request->query('rt');
             $rw = $request->query('rw');
             $dusun = $request->query('dusun');
+            // dd($dusun);
             $periode = $request->query('periode');
 
             $dusuns = DataDusun::getDusun($desa->id,$dusun, $rw,$rt, $periode);

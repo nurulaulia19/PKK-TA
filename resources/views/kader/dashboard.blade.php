@@ -29,7 +29,6 @@
               </div>
               <div class="icon">
                 <i class="ion ion-person-stalker"></i>
-                <div class="notification-badge">3</div>
               </div>
               <a href="/data_keluarga" class="small-box-footer"
                 >Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i
@@ -47,7 +46,6 @@
               </div>
               <div class="icon">
                 <i class="ion ion-person"></i>
-                <div class="notification-badge">3</div>
               </div>
               <a href="/data_warga" class="small-box-footer"
                 >Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i
@@ -65,7 +63,6 @@
               </div>
               <div class="icon">
                 <i class="ion ion-folder"></i>
-                <div class="notification-badge">3</div>
               </div>
               <a href="/data_kegiatan" class="small-box-footer"
                 >Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i
@@ -83,7 +80,6 @@
               </div>
               <div class="icon">
                 <i class="ion ion-home"></i>
-                <div class="notification-badge">3</div>
               </div>
               <a href="/data_industri" class="small-box-footer"
                 >Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i
@@ -107,7 +103,6 @@
                   </div>
                   <div class="icon">
                     <i class="ion ion-folder"></i>
-                    <div class="notification-badge">3</div>
                   </div>
                   <a href="/data_pemanfaatan" class="small-box-footer"
                     >Lihat Selengkapnya <i class="fas fa-arrow-circle-right"></i
@@ -126,7 +121,6 @@
               </div>
               <div class="icon">
                 <i class="ion ion-filing"></i>
-                <div class="notification-badge">3</div>
               </div>
               <a href="/rekap" class="small-box-footer">Lihat Selengkapnya
                 <i class="fas fa-arrow-circle-right"></i>

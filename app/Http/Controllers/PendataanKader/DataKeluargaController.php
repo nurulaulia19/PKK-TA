@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\DataKelompokDasawisma;
 use App\Models\DataKeluarga;
 use App\Models\DataWarga;
+use App\Models\NotifDataKeluarga;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -54,8 +55,6 @@ class DataKeluargaController extends Controller
      $keg = DataKeluarga::all();
      $warga = DataWarga::all();
      $dasawisma = DataKelompokDasawisma::all();
-
-    //  dd($kec);
      return view('kader.data_kegiatan.form.create_data_keluarga', compact('warga', 'kec', 'desas', 'kad', 'dasawisma', 'kader'));
 
     }
@@ -187,6 +186,12 @@ class DataKeluargaController extends Controller
             $wargas->aktivitas_kegiatan_usaha = $request->aktivitas_kegiatan_usaha;
             $wargas->periode = $request->periode;
             $wargas->save();
+            // desa
+
+            // $notifDesa = NotifDataKeluarga::create([
+            //     'dilihat' => false,
+
+            // ]);
             Alert::success('Berhasil', 'Data berhasil di tambahkan');
 
             return redirect('/data_keluarga');

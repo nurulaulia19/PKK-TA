@@ -21,7 +21,6 @@
                                         <div class="col-md-1">
                                             <a href="{{ url('data_keluarga/create') }}" type="button" class="btn btn-success">Tambah</a><br><br>
                                         </div>
-
                                     </div>
 
                                     <thead>
@@ -41,7 +40,10 @@
 
                                         @foreach ($keluarga as $c)
                                     <tr>
-                                        <td style="vertical-align: middle;">{{ $loop->iteration }}</td>
+                                        <td style="vertical-align: middle; position: relative;">
+                                            {{ $loop->iteration }}
+                                        </td>
+
                                         {{-- nama desa yang login --}}
                                         <td style="vertical-align: middle;">{{ucfirst($c->nama_kepala_rumah_tangga) }}</td>
                                         <td style="vertical-align: middle;">{{ucfirst($c->jumlah_anggota_keluarga)}} Orang</td>

@@ -61,6 +61,7 @@ return new class extends Migration
             $table->string('aktivitas_UP2K');
             $table->string('aktivitas_kegiatan_usaha');
             $table->integer('periode');
+            $table->boolean('dilihat')->default(false);
             $table->timestamps();
         });
     }
