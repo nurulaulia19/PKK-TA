@@ -54,6 +54,8 @@ use App\Models\DataGaleri;
 use App\Models\KeteranganKegiatan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+// use App\Http\Controllers\ForgotPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,11 +105,11 @@ Route::get('/sekretariat', [PokjaController::class, 'sekretariat']);
 // Route::get('/data_umum', [PokjaController::class, 'data_umum']);
 
 // halaman admin desa
-Route::get('/admin_desa/login', [AdminController::class, 'login'])->name('admin_desa.login');
-Route::post('/admin_desa/login', [AdminController::class, 'loginPost']);
+// Route::get('/admin_desa/login', [AdminController::class, 'login'])->name('admin_desa.login');
+// Route::post('/admin_desa/login', [AdminController::class, 'loginPost']);
 Route::post('/admin_desa/logout', [AdminController::class, 'logoutPost'])->name('admin_desa.logout');
 Route::middleware(['user_type:admin_desa'])->group(function(){
-    Route::get('/dashboard', [AdminController::class, 'dashboard']);
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin_desa.dashboard');
 
     // data kelompok dasa wisma
     Route::get('/data_kelompok_dasa_wisma', [AdminController::class, 'data_kelompok_dasa_wisma']);
@@ -161,11 +163,11 @@ Route::middleware(['user_type:admin_desa'])->group(function(){
 
 
 // halaman admin kab
-Route::get('/admin_kabupaten/login', [AdminKabController::class, 'login'])->name('admin_kabupaten.login');
-Route::post('/admin_kabupaten/login', [AdminKabController::class, 'loginPost']);
+// Route::get('/admin_kabupaten/login', [AdminKabController::class, 'login'])->name('admin_kabupaten.login');
+// Route::post('/admin_kabupaten/login', [AdminKabController::class, 'loginPost']);
 Route::post('/admin_kabupaten/logout', [AdminKabController::class, 'logoutPost'])->name('admin_kabupaten.logout');
 Route::middleware(['user_type:admin_kabupaten'])->group(function(){
-    Route::get('/dashboard_kab', [AdminKabController::class, 'dashboard_kab']);
+    Route::get('/dashboard_kab', [AdminKabController::class, 'dashboard_kab'])->name('admin_kabupaten.dashboard');
 
     Route::get('/data_kelompok_pkk_kec', [AdminKabController::class, 'data_kelompok_pkk_kec']);
     Route::get('/rekap_pkk_kec', [AdminKabController::class, 'rekap_pkk_kec']);
@@ -195,7 +197,7 @@ Route::middleware(['user_type:admin_kabupaten'])->group(function(){
 
 // halaman admin kecamatan
 Route::middleware(['user_type:admin_kecamatan'])->group(function(){
-    Route::get('/dashboard_kec', [DesaController::class, 'dashboard_kec']);
+    Route::get('/dashboard_kec', [DesaController::class, 'dashboard_kec'])->name('admin_kecamatan.dashboard');
     Route::get('/dashboard_kec/desa', [DesaController::class, 'desa'])->name('dashboard_kec.desa');
     Route::get('/dashboard_kec/rekapitulasi-desa/{id}', [DesaController::class, 'rekapitulasi'])->name('dashboard_kec.rekapitulasi');
     Route::get('/rekap_desa/{id}', [DesaController::class, 'rekap_desa'])->name('rekap_desa');
@@ -210,11 +212,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Route::get('/super_admin', [DashboardSuperController::class, 'index'])->name('super_admin');
 
 //  halaman kader desa
-Route::get('/kader_dasawisma/login', [KaderFormController::class, 'login'])->name('kader_dasawisma.login');
-Route::post('/kader_dasawisma/login', [KaderFormController::class, 'loginPost']);
+// Route::get('/kader_dasawisma/login', [KaderFormController::class, 'login'])->name('kader_dasawisma.login');
+// Route::post('/kader_dasawisma/login', [KaderFormController::class, 'loginPost']);
 Route::post('/kader_dasawisma/logout', [KaderFormController::class, 'logoutPost'])->name('kader_dasawisma.logout');
 Route::middleware(['user_type:kader_dasawisma'])->group(function(){
-        Route::get('/dashboard_kader', [KaderFormController::class, 'dashboard_kader']);
+        Route::get('/dashboard_kader', [KaderFormController::class, 'dashboard_kader'])->name('kader_dasawisma.dashboard');
 
         Route::get('getKeterangan/{id}', function ($id) {
             $keterangan = KeteranganKegiatan::where('id_kegiatan',$id)->get();
@@ -254,4 +256,18 @@ Route::middleware(['user_type:kader_dasawisma'])->group(function(){
     Route::get('/profil', [KaderFormController::class, 'profil']);
     Route::post('/profil/update/{id}', [KaderFormController::class, 'update_profil']);
     Route::post('/profil/update/{id}/password', [KaderFormController::class, 'update_password']);
+
+    // Forgot Password
+    Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+    Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+    // routes/web.php
+
+
+
+// Route::get('/forgot-password', [ForgotPasswordController::class, 'showForgotPasswordForm'])->name('forgot.password');
+// Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+
+
+
+
 });

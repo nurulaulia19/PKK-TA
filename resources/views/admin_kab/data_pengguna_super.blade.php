@@ -1,6 +1,6 @@
 @extends('admin_kab.layout')
 
-@section('title', 'Data Pengguna TP PKK | Suuper Admin PKK Kab. Indramayu')
+@section('title', 'Data Pengguna TP PKK | Super Admin PKK Kab. Indramayu')
 
 @section('bread', 'Data Pengguna TP PKK')
 @section('container')

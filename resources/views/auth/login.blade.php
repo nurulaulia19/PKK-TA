@@ -38,8 +38,10 @@
                         </span>
                     @enderror
                 </div>
+                <div class="col-md-12" style="display: flex; align-items: center; justify-content: end; height: 30px;">
+                    <a style="font-weight: bold; color: #427BFF;" href="{{ route('password.request') }}">Forgot Password</a>
+                </div>
             </div>
-         <br>
           <div class="row">
             <div class="col md-4">
               <button type="submit" class="btn btn-primary btn-block">Sign In</button>
