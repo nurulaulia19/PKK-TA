@@ -69,7 +69,41 @@
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
+            <!-- Messages Dropdown Menu -->
+            <li class="nav-item dropdown">
+              <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="far fa-user"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <a href="#" class="dropdown-item">
+                  <!-- Message Start -->
+                  <div class="media">
+                    <div class="media-body">
+                      <h3 class="dropdown-item-title"><center>
+                        {{ (Auth::user()->name) }}
+                      </center>
+                      </h3>
+                      <p class="text-sm"><center>Admin Kecamatan</center></p>
+                    </div>
+                  </div>
+                  <!-- Message End -->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <!-- Message Start -->
+                  <div class="media d-flex" style="align-items: center">
+                    <i class="far fa-user"></i>
+                        <a href={{route('profil_adminKec')}}>
+                            <h3 class="dropdown-item-title" style="margin-right:200px; width:150px">
+                                Akun Saya
+                            </h3>
 
+                        </a>
+                  </div>
+                  <!-- Message End -->
+                </a>
+              </div>
+            </li>
         </ul>
       </nav>
       <!-- /.navbar -->

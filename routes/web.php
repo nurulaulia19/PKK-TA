@@ -202,6 +202,11 @@ Route::middleware(['user_type:admin_kecamatan'])->group(function(){
     Route::get('/dashboard_kec/rekapitulasi-desa/{id}', [DesaController::class, 'rekapitulasi'])->name('dashboard_kec.rekapitulasi');
     Route::get('/rekap_desa/{id}', [DesaController::class, 'rekap_desa'])->name('rekap_desa');
     Route::get('/export_rekap_desa/kecamatan/{id}', [DesaController::class, 'export'])->name('export_rekap_desa_kecamatan');
+     // profil admin kecamatan
+    Route::get('/profil_admin_kecamatan', [DesaController::class, 'profilAdminKec'])->name('profil_adminKec');
+    Route::post('/profil_admin_kecamatan/update/{id}', [DesaController::class, 'update_profilAdminKec'])->name('update_profil_admin_kec');
+    Route::post('/profil_admin_kecamatan/update/{id}/password', [DesaController::class, 'update_passwordAdminKec'])->name('update_password_admin_kec');
+
 });
 
 Auth::routes();
@@ -256,6 +261,7 @@ Route::middleware(['user_type:kader_dasawisma'])->group(function(){
     Route::get('/profil', [KaderFormController::class, 'profil']);
     Route::post('/profil/update/{id}', [KaderFormController::class, 'update_profil']);
     Route::post('/profil/update/{id}/password', [KaderFormController::class, 'update_password']);
+
 
     // Forgot Password
     Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
