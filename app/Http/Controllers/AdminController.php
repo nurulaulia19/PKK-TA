@@ -24,6 +24,10 @@ use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\PDF;
 use Dompdf\Dompdf;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminController extends Controller
 {
@@ -427,6 +431,61 @@ class AdminController extends Controller
             ));
 
             return Excel::download($export, 'rekap-kelompok-desa.xlsx');
+        }
+
+        public function profilAdminDesa(){
+            $adminDesa = Auth::user();
+            // dd($adminDesa);
+            return view('admin_desa.profil', compact('adminDesa'));
+        }
+
+        public function update_profilAdminDesa(Request $request, $id = null){
+            $request->validate([
+                'name' => 'required'
+            ]);
+
+            $adminDesa = Auth::user();
+            // dd($adminDesa);
+            $adminDesa->name = $request->name;
+            $adminDesa->email = $request->email;
+
+            if ($request->has('password')) {
+                $adminDesa->password = Hash::make($request->password);
+            }
+
+            if ($request->hasFile('foto')) {
+                $image = $request->file('foto');
+                $profileImage = Str::random(5) . date('YmdHis') . "." . $image->getClientOriginalExtension();
+                $result = Storage::disk('public')->putFileAs('foto', $image, $profileImage);
+                $adminDesa->foto = $result;
+            }
+
+            $adminDesa->save();
+
+            Alert::success('Berhasil', 'Data berhasil diubah');
+            return redirect()->back();
+        }
+
+        public function update_passwordAdminDesa(Request $request){
+            $request->validate([
+                'password' => 'required',
+                'new_password' => 'required|confirmed',
+            ], [
+                'password.required' => 'Masukkan Kata Sandi Lama',
+                'new_password.confirmed' => 'Konfirmasi Kata Sandi Baru tidak cocok'
+            ]);
+
+            $adminDesa = Auth::user();
+            if (!Hash::check($request->password, $adminDesa->password)) {
+                Alert::error('Gagal', 'Kata sandi lama tidak sesuai');
+                return redirect()->back();
+            }
+
+            $adminDesa->password = Hash::make($request->new_password);
+            $adminDesa->save();
+
+            Alert::success('Berhasil', 'Kata sandi berhasil diubah');
+            return redirect()->route('profil_adminDesa');
         }
 
 

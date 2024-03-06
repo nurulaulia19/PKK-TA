@@ -70,7 +70,51 @@
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
-
+            <!-- Messages Dropdown Menu -->
+            <li class="nav-item dropdown">
+              <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="far fa-user"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <a href="#" class="dropdown-item">
+                  <!-- Message Start -->
+                  <div class="media">
+                    <div class="media-body">
+                        <h3 class="dropdown-item-title" style="justify-content:center; display:flex">
+                            {{ (Auth::user()->name) }}
+                        </h3>
+                        <div class="container" style="justify-content:center; display:flex">
+                            @if(Auth::user()->user_type === 'admin_kabupaten')
+                                <p class="text-sm">Admin Kabupaten</p>
+                            @elseif(Auth::user()->user_type === 'admin_kecamatan')
+                                <p class="text-sm">Admin Kecamatan</p>
+                            @elseif(Auth::user()->user_type === 'admin_desa')
+                                <p class="text-sm">Admin Desa</p>
+                            @elseif(Auth::user()->user_type === 'kader_dasawisma')
+                                <p class="text-sm">Kader Dasawisma</p>
+                            @else
+                                <p class="text-sm">Peran Pengguna tidak dikenali</p>
+                            @endif
+                        </div>
+                    </div>
+                  </div>
+                  <!-- Message End -->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <!-- Message Start -->
+                  <div class="media d-flex" style="align-items: center">
+                    <i class="far fa-user"></i>
+                        <a href={{route('profil_adminDesa')}}>
+                            <h3 class="dropdown-item-title" style="margin-right:200px; width:150px">
+                                Akun Saya
+                            </h3>
+                        </a>
+                  </div>
+                  <!-- Message End -->
+                </a>
+              </div>
+            </li>
         </ul>
       </nav>
       <!-- /.navbar -->

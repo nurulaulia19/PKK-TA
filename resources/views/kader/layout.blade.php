@@ -81,11 +81,22 @@
                       <!-- Message Start -->
                       <div class="media">
                         <div class="media-body">
-                          <h3 class="dropdown-item-title"><center>
-                            {{ (Auth::user()->name) }}
-                          </center>
-                          </h3>
-                          <p class="text-sm"><center>Kader Dasawisma</center></p>
+                            <h3 class="dropdown-item-title" style="justify-content:center; display:flex">
+                                {{ (Auth::user()->name) }}
+                            </h3>
+                            <div class="container" style="justify-content:center; display:flex">
+                                @if(Auth::user()->user_type === 'admin_kabupaten')
+                                    <p class="text-sm">Admin Kabupaten</p>
+                                @elseif(Auth::user()->user_type === 'admin_kecamatan')
+                                    <p class="text-sm">Admin Kecamatan</p>
+                                @elseif(Auth::user()->user_type === 'admin_desa')
+                                    <p class="text-sm">Admin Desa</p>
+                                @elseif(Auth::user()->user_type === 'kader_dasawisma')
+                                    <p class="text-sm">Kader Dasawisma</p>
+                                @else
+                                    <p class="text-sm">Peran Pengguna tidak dikenali</p>
+                                @endif
+                            </div>
                         </div>
                       </div>
                       <!-- Message End -->

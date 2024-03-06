@@ -159,6 +159,12 @@ Route::middleware(['user_type:admin_desa'])->group(function(){
     // Route::resource('/kategori_industri', KategoriIndustriRumahController::class);
     // Route::resource('/kategori_pemanfaatan', KategoriPemanfaatanLahanController::class);
 
+    // profil admin desa
+    Route::get('/profil_admin_desa', [AdminController::class, 'profilAdminDesa'])->name('profil_adminDesa');
+    Route::post('/profil_admin_desa/update/{id}', [AdminController::class, 'update_profilAdminDesa'])->name('update_profil_admin_desa');
+    Route::post('/profil_admin_desa/update/{id}/password', [AdminController::class, 'update_passwordAdminDesa'])->name('update_password_admin_desa');
+
+
 });
 
 
@@ -193,6 +199,11 @@ Route::middleware(['user_type:admin_kabupaten'])->group(function(){
         // dd($desas);
         return response()->json($desas);
     });
+
+    // profil admin kabupaten
+    Route::get('/profil_admin_kabupaten', [AdminKabController::class, 'profilAdminKabupaten'])->name('profil_adminKabupaten');
+    Route::post('/profil_admin_kabupaten/update/{id}', [AdminKabController::class, 'update_profilAdminKabupaten'])->name('update_profil_admin_kabupaten');
+    Route::post('/profil_admin_kabupaten/update/{id}/password', [AdminKabController::class, 'update_passwordAdminKabupaten'])->name('update_password_admin_kabupaten');
 });
 
 // halaman admin kecamatan

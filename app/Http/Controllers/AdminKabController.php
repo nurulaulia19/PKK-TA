@@ -16,6 +16,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminKabController extends Controller
 {
@@ -200,6 +204,61 @@ class AdminKabController extends Controller
         ));
 
         return Excel::download($export, 'rekap-kelompok-kabupaten.xlsx');
+    }
+
+    public function profilAdminKabupaten(){
+        $adminKabupaten = Auth::user();
+        // dd($adminKabupaten);
+        return view('admin_kab.profil', compact('adminKabupaten'));
+    }
+
+    public function update_profilAdminKabupaten(Request $request, $id = null){
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        $adminKabupaten = Auth::user();
+        // dd($adminKabupaten);
+        $adminKabupaten->name = $request->name;
+        $adminKabupaten->email = $request->email;
+
+        if ($request->has('password')) {
+            $adminKabupaten->password = Hash::make($request->password);
+        }
+
+        if ($request->hasFile('foto')) {
+            $image = $request->file('foto');
+            $profileImage = Str::random(5) . date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $result = Storage::disk('public')->putFileAs('foto', $image, $profileImage);
+            $adminKabupaten->foto = $result;
+        }
+
+        $adminKabupaten->save();
+
+        Alert::success('Berhasil', 'Data berhasil diubah');
+        return redirect()->back();
+    }
+
+    public function update_passwordAdminKabupaten(Request $request){
+        $request->validate([
+            'password' => 'required',
+            'new_password' => 'required|confirmed',
+        ], [
+            'password.required' => 'Masukkan Kata Sandi Lama',
+            'new_password.confirmed' => 'Konfirmasi Kata Sandi Baru tidak cocok'
+        ]);
+
+        $adminKabupaten = Auth::user();
+        if (!Hash::check($request->password, $adminKabupaten->password)) {
+            Alert::error('Gagal', 'Kata sandi lama tidak sesuai');
+            return redirect()->back();
+        }
+
+        $adminKabupaten->password = Hash::make($request->new_password);
+        $adminKabupaten->save();
+
+        Alert::success('Berhasil', 'Kata sandi berhasil diubah');
+        return redirect()->route('profil_adminKabupaten');
     }
 
 }

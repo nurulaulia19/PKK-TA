@@ -15,16 +15,12 @@
           <div class="card card-primary card-outline">
             <div class="card-body box-profile">
               <div class="text-center">
-                <img src="{{ asset('uploads/'.$adminKec->foto) }}" class="profile-user-img img-fluid img-circle" width="100px">
+                <img src="{{ asset('uploads/'.$adminKec->foto) }}" class="profile-user-img img-fluid img-circle rounded-circle" style="max-width: 100px; max-height: 100px;">
               </div>
-
               <h3 class="profile-username text-center">{{ (Auth::user()->name) }}</h3>
 
               <p class="text-muted text-center">Admin Kecamatan</p>
               <ul class="list-group list-group-unbordered mb-3">
-                {{-- <li class="list-group-item">
-                  <b>Desa</b> <a class="float-right">{{ (Auth::user()->desa->nama_desa) }}</a>
-                </li> --}}
                 <li class="list-group-item">
                   <b>Kecamatan</b> <a class="float-right">{{ (Auth::user()->kecamatan->nama_kecamatan) }}</a>
                 </li>
@@ -71,7 +67,7 @@
 
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Edit</button>
-                            <a href="/profil" class="btn btn-outline-primary">
+                            <a href="{{route('profil_adminKec')}}" class="btn btn-outline-primary">
                               <span>Batalkan</span>
                           </a>
                         </div>

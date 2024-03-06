@@ -1,6 +1,6 @@
-@extends('kader.layout')
+@extends('admin_kab.layout')
 
-@section('title', 'Profil Saya | Kader Dasawisma PKK Kab. Indramayu')
+@section('title', 'Profil Saya | Admin Kabupaten PKK Kab. Indramayu')
 
 @section('bread', 'Profil Saya')
 @section('container')
@@ -15,16 +15,14 @@
           <div class="card card-primary card-outline">
             <div class="card-body box-profile">
               <div class="text-center">
-                <img src="{{ asset('uploads/'.$data_kader->foto) }}" class="profile-user-img img-fluid img-circle rounded-circle" style="max-width: 100px; max-height: 100px;">
+                <img src="{{ asset('uploads/'.$adminKabupaten->foto) }}" class="profile-user-img img-fluid img-circle rounded-circle" style="max-width: 100px; max-height: 100px;">
               </div>
               <h3 class="profile-username text-center">{{ (Auth::user()->name) }}</h3>
-              <p class="text-muted text-center">Kader Dasawisma</p>
+
+              <p class="text-muted text-center">Admin Kabupaten</p>
               <ul class="list-group list-group-unbordered mb-3">
                 <li class="list-group-item">
-                  <b>Desa</b> <a class="float-right">{{ (Auth::user()->desa->nama_desa) }}</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Kecamatan</b> <a class="float-right">{{ (Auth::user()->kecamatan->nama_kecamatan) }}</a>
+                  <b>Kabupaten</b> <span class="floa-right">Indramayu</span>
                 </li>
               </ul>
             </div>
@@ -46,9 +44,8 @@
                 <div class="tab-content">
                   <div class="active tab-pane" id="activity">
                     <!-- Post -->
-                    <form class="form-horizontal" action="{{ url ('/profil/update', $data_kader->id) }}" method="POST" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="{{ route('update_profil_admin_kabupaten', $adminKabupaten->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
-
                         <div class="form-group row">
                           <label for="inputName" class="col-sm-2 col-form-label">Nama</label>
                           <div class="col-sm-10">
@@ -64,13 +61,13 @@
                         <div class="form-group">
                             <label>Foto Profil</label>
                             <input name="foto" type="file" class="form-control-file" id="foto" accept=".img, .jpg, .jpeg, .png" value="{{old('foto', Auth::user()->foto)}}">
-                            <img src="{{ asset('uploads/'.$data_kader->foto) }}" class="img-thumbnail" width="100px">
+                            <img src="{{ asset('uploads/'.$adminKabupaten->foto) }}" class="img-thumbnail" width="100px">
                                     {{-- <input name="logo" type="hidden" name="hidden_image" value="{{asset('gambar/'. $c->logo)}}" class="form-control-file" id="hidden_image"> --}}
                         </div>
 
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Edit</button>
-                            <a href="/profil" class="btn btn-outline-primary">
+                            <a href="{{route('profil_adminKabupaten')}}" class="btn btn-outline-primary">
                               <span>Batalkan</span>
                           </a>
                         </div>
@@ -82,9 +79,8 @@
                   <div class="tab-pane" id="timeline">
                     <!-- The timeline -->
                       <!-- timeline time label -->
-                      <form class="form-horizontal" action="{{ url ('/profil/update/' . $data_kader->id . '/password') }}" method="POST">
+                      <form class="form-horizontal" action="{{ route('update_password_admin_kabupaten', $adminKabupaten->id) }}" method="POST">
                         @csrf
-
                         <div class="form-group row">
                           <label for="inputName" class="col-sm-2 col-form-label">Kata Sandi Lama</label>
                           <div class="col-sm-10">
@@ -121,7 +117,7 @@
                         </div>
                        <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Edit</button>
-                            <a href="/profil" class="btn btn-outline-primary">
+                            <a href="{{ route('profil_adminKabupaten') }}" class="btn btn-outline-primary">
                               <span>Batalkan</span>
                           </a>
                         </div>
